@@ -1,3 +1,4 @@
 target 'UIView' do
 	pod 'AFNetworking', '~> 4.0'
+	pod 'MJRefresh'
 end

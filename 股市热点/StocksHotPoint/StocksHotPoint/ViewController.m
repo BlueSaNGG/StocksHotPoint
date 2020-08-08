@@ -15,6 +15,8 @@
 #import "ListLoader.h"
 #import "ListModel.h"
 #import "settingViewController.h"
+#import <MJRefresh.h>
+#import <AFNetworking.h>
 
 
 
@@ -109,35 +111,84 @@
     [self.view addSubview:_leftBtnClicked];
     
 // - 初始化热点掘金tableview
-    _hotDotTableView = [[hotDotContent alloc] initWithFrame:CGRectMake(0, _leftSubBtn.center.y+36, self.view.bounds.size.width, self.view.bounds.size.height)];
+    _hotDotTableView = [[hotDotContent alloc] initWithFrame:CGRectMake(0, _leftSubBtn.center.y+36, self.view.bounds.size.width, self.view.bounds.size.height-(_leftSubBtn.center.y+100))];
     _hotDotTableView.delegate = self;
     _hotDotTableView.dataSource = self;
     [self.view addSubview:_hotDotTableView];
+//热点掘金头部下拉请求
+    _hotDotTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+       //Call this Block When enter the refresh status automatically
+        [NSThread sleepForTimeInterval:0.5];
+        [self->_hotDotTableView.mj_header endRefreshing];
+    }];
+    
+    // Enter the refresh status immediately
+//    [_hotDotTableView.mj_header beginRefreshing];
+    
+//热点掘金底部上拉请求
+    _hotDotTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        //Call this Block When enter the refresh status automatically
+        [NSThread sleepForTimeInterval:0.5];
+        [self->_hotDotTableView.mj_footer endRefreshing];
+    }];
+    
     
 // - 初始化24小时滚动tableview
-    _hoursTableView = [[hoursTableView alloc] initWithFrame:CGRectMake(0, _leftSubBtn.center.y+36, self.view.bounds.size.width, self.view.bounds.size.height)];
+    _hoursTableView = [[hoursTableView alloc] initWithFrame:CGRectMake(0, _leftSubBtn.center.y+36, self.view.bounds.size.width, self.view.bounds.size.height-(_leftSubBtn.center.y+100))];
     _hoursTableView.delegate = self;
     _hoursTableView.dataSource = self;
+    
+//24小时滚动头部下拉请求
+    _hoursTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+       //Call this Block When enter the refresh status automatically
+        [NSThread sleepForTimeInterval:0.5];
+        [self->_hoursTableView.mj_header endRefreshing];
+    }];
+    
+    // Enter the refresh status immediately
+    [_hoursTableView.mj_header beginRefreshing];
+    
+//24小时滚动底部上拉请求
+    _hoursTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        //Call this Block When enter the refresh status automatically
+        [NSThread sleepForTimeInterval:0.5];
+        [self->_hoursTableView.mj_footer endRefreshing];
+    }];
 
+    
+    
+    
+    
+    
 
 // - 网络请求 热点掘金
-    self.listLoader = [[ListLoader alloc] initWithUrl:@"https://m.10jqka.com.cn/todayhot.json"];
-    __weak typeof(self) hself = self;
-    [self.listLoader loadListDataWithFinishBlock:^(BOOL success, NSArray<ListModel *> * _Nonnull dataArray) {
-        __strong typeof(hself) hStrongSelf = hself;
-        hStrongSelf.hotDataArray = dataArray;
-        [hStrongSelf.hotDotTableView reloadData];
-    }];
+    [self getHotDot];
+//    self.listLoader = [[ListLoader alloc] initWithUrl:@"https://m.10jqka.com.cn/todayhot.json"];
+//    __weak typeof(self) hself = self;
+//    [self.listLoader loadListDataWithFinishBlock:^(BOOL success, NSArray<ListModel *> * _Nonnull dataArray) {
+//        __strong typeof(hself) hStrongSelf = hself;
+//        hStrongSelf.hotDataArray = dataArray;
+//        [hStrongSelf.hotDotTableView reloadData];
+//    }];
+
 // - 网络请求 24小时滚动
-    self.listLoader = [[ListLoader alloc] initWithUrl:@"https://m.10jqka.com.cn/thsgd_list/index_1.json"];
-    __weak typeof(self) wself = self;
-    [self.listLoader loadListDataWithFinishBlock:^(BOOL success, NSArray<ListModel *> * _Nonnull dataArray) {
-        __strong typeof(wself) strongSelf = wself;
-        strongSelf.hoursDataArray = dataArray;
-        [strongSelf.hoursTableView reloadData];
-    }];
+    [self getHours];
+//    self.listLoader = [[ListLoader alloc] initWithUrl:@"https://m.10jqka.com.cn/thsgd_list/index_1.json"];
+//    __weak typeof(self) wself = self;
+//    [self.listLoader loadListDataWithFinishBlock:^(BOOL success, NSArray<ListModel *> * _Nonnull dataArray) {
+//        __strong typeof(wself) strongSelf = wself;
+//        strongSelf.hoursDataArray = dataArray;
+//        [strongSelf.hoursTableView reloadData];
+//    }];
 
 }
+
+#pragma mark - 今日热点下拉刷新
+- (void)loadMoreData {
+    [NSThread sleepForTimeInterval:2];
+    
+}
+
 
 #pragma mark - 今日热点点击事件
 - (void)leftBtnClickedFunc {
@@ -233,6 +284,25 @@
 }
 
 
+#pragma mark - 网络请求get
+-(void)getHotDot {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"https://m.10jqka.com.cn/todayhot.json" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.hotDataArray = responseObject[@"pageItems"];
+        [self.hotDotTableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
+-(void)getHours {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"https://m.10jqka.com.cn/thsgd_list/index_1.json" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.hoursDataArray = responseObject[@"pageItems"];
+        [self.hoursTableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    }];
+}
 @end
 
 

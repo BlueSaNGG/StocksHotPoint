@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,8 +14,6 @@
 		3344081A24D18EF200269281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3344081924D18EF200269281 /* Assets.xcassets */; };
 		3344081D24D18EF200269281 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3344081B24D18EF200269281 /* LaunchScreen.storyboard */; };
 		3344082024D18EF200269281 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3344081F24D18EF200269281 /* main.m */; };
-		3344082A24D18EF200269281 /* UIViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3344082924D18EF200269281 /* UIViewTests.m */; };
-		3344083524D18EF200269281 /* UIViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3344083424D18EF200269281 /* UIViewUITests.m */; };
 		3344087624D2B2AE00269281 /* cell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3344087524D2B2AE00269281 /* cell1.m */; };
 		3344087724D2B2AE00269281 /* cell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3344087524D2B2AE00269281 /* cell1.m */; };
 		3344087824D2B2AE00269281 /* cell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3344087524D2B2AE00269281 /* cell1.m */; };
@@ -66,11 +64,7 @@
 		3344081E24D18EF200269281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3344081F24D18EF200269281 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3344082524D18EF200269281 /* UIViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3344082924D18EF200269281 /* UIViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewTests.m; sourceTree = "<group>"; };
-		3344082B24D18EF200269281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3344083024D18EF200269281 /* UIViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3344083424D18EF200269281 /* UIViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewUITests.m; sourceTree = "<group>"; };
-		3344083624D18EF200269281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3344087424D2B2AE00269281 /* cell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cell1.h; sourceTree = "<group>"; };
 		3344087524D2B2AE00269281 /* cell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cell1.m; sourceTree = "<group>"; };
 		3344087924D2B61800269281 /* secondPageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = secondPageController.h; sourceTree = "<group>"; };
@@ -125,12 +119,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33119B9024DE4E9700C530E1 /* refresh */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = refresh;
+			sourceTree = "<group>";
+		};
 		3344080124D18EF200269281 = {
 			isa = PBXGroup;
 			children = (
 				3344080C24D18EF200269281 /* UIView */,
-				3344082824D18EF200269281 /* UIViewTests */,
-				3344083324D18EF200269281 /* UIViewUITests */,
 				3344088824D2BCA900269281 /* icon */,
 				3344080B24D18EF200269281 /* Products */,
 				FDCD886A0FA025CCC401C7D8 /* Pods */,
@@ -152,6 +151,7 @@
 		3344080C24D18EF200269281 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				33119B9024DE4E9700C530E1 /* refresh */,
 				33DE0E5524D940F900CB9483 /* Loader */,
 				33DE0E5024D93E1A00CB9483 /* homeController */,
 				3344080D24D18EF200269281 /* AppDelegate.h */,
@@ -169,24 +169,6 @@
 				3344087F24D2B7E300269281 /* thirdPageController.m */,
 			);
 			path = UIView;
-			sourceTree = "<group>";
-		};
-		3344082824D18EF200269281 /* UIViewTests */ = {
-			isa = PBXGroup;
-			children = (
-				3344082924D18EF200269281 /* UIViewTests.m */,
-				3344082B24D18EF200269281 /* Info.plist */,
-			);
-			path = UIViewTests;
-			sourceTree = "<group>";
-		};
-		3344083324D18EF200269281 /* UIViewUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3344083424D18EF200269281 /* UIViewUITests.m */,
-				3344083624D18EF200269281 /* Info.plist */,
-			);
-			path = UIViewUITests;
 			sourceTree = "<group>";
 		};
 		3344088824D2BCA900269281 /* icon */ = {
@@ -261,7 +243,6 @@
 				A3C5BC1CC2C66730FB44B697 /* Pods-UIView.debug.xcconfig */,
 				39E2824BEF5B4500FC0E84A7 /* Pods-UIView.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -276,6 +257,7 @@
 				3344080624D18EF200269281 /* Sources */,
 				3344080724D18EF200269281 /* Frameworks */,
 				3344080824D18EF200269281 /* Resources */,
+				2ADE6054C870B9B1D15391F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -442,6 +424,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2ADE6054C870B9B1D15391F3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UIView/Pods-UIView-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UIView/Pods-UIView-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UIView/Pods-UIView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -469,7 +468,6 @@
 			files = (
 				3344087C24D2B61800269281 /* secondPageController.m in Sources */,
 				33DE0D8824D7F0F000CB9483 /* GTDeleteCell.m in Sources */,
-				3344082A24D18EF200269281 /* UIViewTests.m in Sources */,
 				3344088124D2B7E300269281 /* thirdPageController.m in Sources */,
 				3344087724D2B2AE00269281 /* cell1.m in Sources */,
 			);
@@ -481,7 +479,6 @@
 			files = (
 				3344087D24D2B61800269281 /* secondPageController.m in Sources */,
 				33DE0D8924D7F0F000CB9483 /* GTDeleteCell.m in Sources */,
-				3344083524D18EF200269281 /* UIViewUITests.m in Sources */,
 				3344088224D2B7E300269281 /* thirdPageController.m in Sources */,
 				3344087824D2B2AE00269281 /* cell1.m in Sources */,
 			);

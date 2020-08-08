@@ -26,12 +26,12 @@
     
 }
 
-- (instancetype)initWithData:(ListModel *)ListModel {
+- (instancetype)initWithData:(NSDictionary *)Data {
     self = [super init];
         if (self) {
             //text
             //标题设置
-            _text=ListModel.title;
+            _text=Data[@"title"];
             if(_text.length>18) {
                 _text = [[_text substringToIndex:17] stringByAppendingString:@"..."];
     //            NSLog(@"%@",_text);
@@ -51,7 +51,7 @@
             [self.contentView addSubview:textLabel];
             
             //时间设置
-            _curTime = [ListModel.ctime substringFromIndex:5];
+            _curTime = [Data[@"rtime"] substringFromIndex:5];
             _curTime = [_curTime substringToIndex:11];
             
             UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(textLabel.center.x*1.3, textLabel.center.y+10, 120, 30)];

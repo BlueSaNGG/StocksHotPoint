@@ -8,6 +8,7 @@
 
 #import "ListLoader.h"
 #import "ListModel.h"
+#import <AFNetworking.h>
 
 @implementation ListLoader
 /*
@@ -45,6 +46,12 @@
         });
     }];
     [dataTask resume];
+    
+    
+    //AFNETWORING
+
+    
+
 }
 
 @end

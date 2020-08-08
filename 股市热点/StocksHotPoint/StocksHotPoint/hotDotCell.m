@@ -27,7 +27,7 @@
 
 @implementation hotDotCell
 
-- (instancetype)initWithData:(ListModel *)Data {
+- (instancetype)initWithData:(NSDictionary *)Data {
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0];
@@ -35,7 +35,7 @@
         [self.backgroundView setContentMode:UIViewContentModeScaleToFill];
         
         //设置标题栏
-        _title=Data.title;
+        _title=Data[@"title"];
         if(_title.length>16) {
                     _title = [[_title substringToIndex:15] stringByAppendingString:@"..."];
                 }
@@ -53,7 +53,7 @@
         //设置pic
 
         //设置摘要栏
-        _abstract = Data.summary;
+        _abstract = Data[@"summary"];
         _abstractLabel = [[UILabel alloc] initWithFrame:CGRectMake(_titleLabel.frame.origin.x, _titleLabel.frame.origin.y+_titleLabel.frame.size.height+10, _titleLabel.frame.size.width, 100)];
         _abstractLabel.text = _abstract;
         _abstractLabel.numberOfLines = 3;
@@ -64,8 +64,8 @@
         [_abstractLabel setTextColor:[UIColor colorWithRed:113/255.0 green:113/255.0 blue:113/255.0 alpha:1.0]];
 //        _abstractLabel.backgroundColor = [UIColor yellowColor];
         //判断有无图片
-        if(Data.pic) {
-            UIImageView *pic = [[UIImageView alloc] initWithImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:Data.pic]]]];
+        if(Data[@"pic"]) {
+            UIImageView *pic = [[UIImageView alloc] initWithImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:Data[@"pic"]]]]];
             [pic setFrame:CGRectMake(_titleLabel.frame.origin.x, _titleLabel.frame.origin.y+_titleLabel.frame.size.height+10, 80, 80)];
             [self addSubview:pic];
             [_abstractLabel setFrame:CGRectMake(pic.bounds.origin.x + 120, _titleLabel.frame.origin.y+_titleLabel.frame.size.height+10, _titleLabel.frame.size.width-50, _titleLabel.frame.size.height)];
@@ -73,7 +73,7 @@
         [self addSubview:_abstractLabel];
         
         //设置时间
-        _time = [[Data.ctime substringFromIndex:5] substringToIndex:11];;
+        _time = [[Data[@"ctime"] substringFromIndex:5] substringToIndex:11];;
         _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(_titleLabel.center.x*1.3, _titleLabel.center.y, 100, 30)];
         [_timeLabel setTextColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0]];
         _timeLabel.text = _time;
@@ -81,8 +81,8 @@
         [self addSubview:_timeLabel];
         
         //设置公司
-        if(Data.stocks) {
-        _company = [@"相关证券：" stringByAppendingString:Data.stocks];
+        if(Data[@"stocks"]) {
+        _company = [@"相关证券：" stringByAppendingString:Data[@"stocks"]];
         }
         _companyLabel = [[UILabel alloc] initWithFrame:CGRectMake(_titleLabel.frame.origin.x, 225, _titleLabel.frame.size.width, 30)];
         [_companyLabel setTextColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0]];
@@ -117,7 +117,7 @@
         
         
         //设置hot图标
-        if([Data.hot isEqualToNumber:@1] ) {
+        if([Data[@"hot"] isEqualToNumber:@1] ) {
         }
     
     }
