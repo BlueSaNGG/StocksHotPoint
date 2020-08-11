@@ -29,24 +29,22 @@
 - (instancetype)initWithData:(NSDictionary *)Data {
     self = [super init];
         if (self) {
-            //text
             //标题设置
             _text=Data[@"title"];
-            if(_text.length>18) {
-                _text = [[_text substringToIndex:17] stringByAppendingString:@"..."];
-    //            NSLog(@"%@",_text);
+            if(_text.length>26) {
+                _text = [[_text substringToIndex:26] stringByAppendingString:@"..."];
             }
             //
             self = [self initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:@"id"];
             
-            UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(28, 0, self.bounds.size.width, 124)];
+            UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(14, 0, self.bounds.size.width+30, 62)];
             [textLabel setText:_text];
             [textLabel setTextColor:[UIColor colorWithRed:22/255.0 green:22/255.0 blue:22/255.0 alpha:1.0]];
             textLabel.numberOfLines = 2;
             textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-            [self setLabelSpace:textLabel withSpace:3 withFont:[UIFont systemFontOfSize:24]];
+            [self setLabelSpace:textLabel withSpace:3 withFont:[UIFont systemFontOfSize:16]];
             //设置最多显示字数
-    //        textLabel.backgroundColor = [UIColor yellowColor];
+//            textLabel.backgroundColor = [UIColor yellowColor];
             
             [self.contentView addSubview:textLabel];
             
@@ -54,10 +52,10 @@
             _curTime = [Data[@"rtime"] substringFromIndex:5];
             _curTime = [_curTime substringToIndex:11];
             
-            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(textLabel.center.x*1.3, textLabel.center.y+10, 120, 30)];
+            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width, textLabel.center.y+5, 120, 30)];
             [timeLabel setTextColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0]];
             timeLabel.text = _curTime;
-            [self setLabelSpace:timeLabel withSpace:3 withFont:[UIFont systemFontOfSize:20]];
+            [self setLabelSpace:timeLabel withSpace:3 withFont:[UIFont systemFontOfSize:13]];
             [timeLabel adjustsFontSizeToFitWidth];
             [self addSubview:timeLabel];
             

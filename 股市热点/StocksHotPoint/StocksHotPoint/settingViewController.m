@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view.
     self.title = @"设置";
     self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
-    UITableView *options = [[UITableView alloc] initWithFrame:CGRectMake(0, 24, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
+    UITableView *options = [[UITableView alloc] initWithFrame:CGRectMake(0, 12, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
 
     
     
@@ -56,7 +56,7 @@
     settingTableViewCell *cell = [[settingTableViewCell alloc] init];
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"设置-底"]];
     cell.textLabel.text = _optionsName[indexPath.section];
-    cell.textLabel.font = [UIFont systemFontOfSize:32];
+    cell.textLabel.font = [UIFont systemFontOfSize:16];
     cell.textLabel.textColor = [UIColor colorWithRed:22/255.0 green:22/255.0 blue:22/255.0 alpha:1];
     return cell;
 }
@@ -66,7 +66,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 36;
+    return 18;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -76,7 +76,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 88;
+    return 44;
 }
 
 

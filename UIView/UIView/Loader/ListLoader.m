@@ -8,7 +8,7 @@
 
 #import "ListLoader.h"
 #import "ListModel.h"
-#import <AFNetworking.h>
+//#import <AFNetworking.h>
 
 @implementation ListLoader
 /*

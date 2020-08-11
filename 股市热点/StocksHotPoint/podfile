@@ -1,4 +1,5 @@
 target 'StocksHotPoint' do
 	pod 'AFNetworking', '~> 4.0'
 	pod 'MJRefresh'
+	pod 'Masonry'
 end

@@ -47,7 +47,6 @@
             ListModel *listItem = [[ListModel alloc] init];
             [listItem configWithDictionary:info];
             [listItemArray addObject:listItem];
-            NSLog(@"");
         }
         
         dispatch_sync(dispatch_get_main_queue(), ^{

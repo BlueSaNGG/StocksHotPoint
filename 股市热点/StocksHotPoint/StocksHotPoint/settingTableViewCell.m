@@ -15,7 +15,8 @@
     if (self) {
         //加入箭头
         UIImageView *arrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"设置-箭头.png"] highlightedImage:[UIImage imageNamed:@"运营-箭头.png"]];
-        [arrow setFrame:CGRectMake(self.center.x+150, self.center.y, 40, 40)];
+        [arrow setFrame:CGRectMake(self.center.x+150, self.center.y, 20, 20)];
+        [arrow setCenter:CGPointMake(arrow.center.x, self.center.y)];
         [self addSubview:arrow];
     }
     return self;

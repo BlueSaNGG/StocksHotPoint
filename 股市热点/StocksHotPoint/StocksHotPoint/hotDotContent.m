@@ -17,7 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0];
-        [self setRowHeight:359];
+        [self setRowHeight:189];
         [self setSeparatorColor:[UIColor colorWithWhite:0 alpha:0]];
     }
     return self;

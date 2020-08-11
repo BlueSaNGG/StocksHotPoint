@@ -93,6 +93,29 @@
 		33119AF524DD458200C530E1 /* 运营-同花顺logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119AF224DD458200C530E1 /* 运营-同花顺logo.png */; };
 		33119B9224DE659100C530E1 /* 首页-刷新箭头-上.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119B9124DE659100C530E1 /* 首页-刷新箭头-上.png */; };
 		33119B9424DE659900C530E1 /* 首页-刷新箭头-下.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119B9324DE659900C530E1 /* 首页-刷新箭头-下.png */; };
+		33119B9624E0EC2F00C530E1 /* 朋友圈.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119B9524E0EC2F00C530E1 /* 朋友圈.png */; };
+		33119B9924E10E6700C530E1 /* wenStocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119B9824E10E6700C530E1 /* wenStocks.m */; };
+		33119B9A24E10E6700C530E1 /* wenStocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119B9824E10E6700C530E1 /* wenStocks.m */; };
+		33119B9B24E10E6700C530E1 /* wenStocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119B9824E10E6700C530E1 /* wenStocks.m */; };
+		33119B9D24E1196D00C530E1 /* 问股-输入框.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119B9C24E1196D00C530E1 /* 问股-输入框.png */; };
+		33119B9E24E1196D00C530E1 /* 问股-输入框.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119B9C24E1196D00C530E1 /* 问股-输入框.png */; };
+		33119B9F24E1196D00C530E1 /* 问股-输入框.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119B9C24E1196D00C530E1 /* 问股-输入框.png */; };
+		33119BA124E11EDB00C530E1 /* 问股-发送按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BA024E11EDB00C530E1 /* 问股-发送按钮.png */; };
+		33119BA224E11EDB00C530E1 /* 问股-发送按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BA024E11EDB00C530E1 /* 问股-发送按钮.png */; };
+		33119BA324E11EDB00C530E1 /* 问股-发送按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BA024E11EDB00C530E1 /* 问股-发送按钮.png */; };
+		33119BA524E11EE100C530E1 /* 气泡框2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BA424E11EE100C530E1 /* 气泡框2.png */; };
+		33119BA624E11EE100C530E1 /* 气泡框2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BA424E11EE100C530E1 /* 气泡框2.png */; };
+		33119BA724E11EE100C530E1 /* 气泡框2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BA424E11EE100C530E1 /* 气泡框2.png */; };
+		33119BA924E11EF800C530E1 /* 气泡框1.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BA824E11EF800C530E1 /* 气泡框1.png */; };
+		33119BAA24E11EF800C530E1 /* 气泡框1.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BA824E11EF800C530E1 /* 气泡框1.png */; };
+		33119BAB24E11EF800C530E1 /* 气泡框1.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BA824E11EF800C530E1 /* 气泡框1.png */; };
+		33119BAF24E1352000C530E1 /* wenStocksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BAE24E1352000C530E1 /* wenStocksCell.m */; };
+		33119BB024E1352000C530E1 /* wenStocksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BAE24E1352000C530E1 /* wenStocksCell.m */; };
+		33119BB124E1352000C530E1 /* wenStocksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BAE24E1352000C530E1 /* wenStocksCell.m */; };
+		33119BB524E17CAF00C530E1 /* 运营-底.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BB424E17CAE00C530E1 /* 运营-底.png */; };
+		33119BC724E2B4D900C530E1 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BC624E2B4D900C530E1 /* XMLParser.m */; };
+		33119BC824E2B4D900C530E1 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BC624E2B4D900C530E1 /* XMLParser.m */; };
+		33119BC924E2B4D900C530E1 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BC624E2B4D900C530E1 /* XMLParser.m */; };
 		33DE0E8824DA5C0D00CB9483 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DE0E8724DA5C0D00CB9483 /* AppDelegate.m */; };
 		33DE0E8B24DA5C0D00CB9483 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DE0E8A24DA5C0D00CB9483 /* SceneDelegate.m */; };
 		33DE0E8E24DA5C0D00CB9483 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DE0E8D24DA5C0D00CB9483 /* ViewController.m */; };
@@ -166,6 +189,19 @@
 		33119AF224DD458200C530E1 /* 运营-同花顺logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "运营-同花顺logo.png"; sourceTree = "<group>"; };
 		33119B9124DE659100C530E1 /* 首页-刷新箭头-上.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页-刷新箭头-上.png"; sourceTree = "<group>"; };
 		33119B9324DE659900C530E1 /* 首页-刷新箭头-下.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页-刷新箭头-下.png"; sourceTree = "<group>"; };
+		33119B9524E0EC2F00C530E1 /* 朋友圈.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "朋友圈.png"; sourceTree = "<group>"; };
+		33119B9724E10E6700C530E1 /* wenStocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wenStocks.h; sourceTree = "<group>"; };
+		33119B9824E10E6700C530E1 /* wenStocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wenStocks.m; sourceTree = "<group>"; };
+		33119B9C24E1196D00C530E1 /* 问股-输入框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "问股-输入框.png"; sourceTree = "<group>"; };
+		33119BA024E11EDB00C530E1 /* 问股-发送按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "问股-发送按钮.png"; sourceTree = "<group>"; };
+		33119BA424E11EE100C530E1 /* 气泡框2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "气泡框2.png"; sourceTree = "<group>"; };
+		33119BA824E11EF800C530E1 /* 气泡框1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "气泡框1.png"; sourceTree = "<group>"; };
+		33119BAD24E1352000C530E1 /* wenStocksCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wenStocksCell.h; sourceTree = "<group>"; };
+		33119BAE24E1352000C530E1 /* wenStocksCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wenStocksCell.m; sourceTree = "<group>"; };
+		33119BB424E17CAE00C530E1 /* 运营-底.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "运营-底.png"; sourceTree = "<group>"; };
+		33119BC324E2988400C530E1 /* StocksHotPoint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StocksHotPoint.entitlements; sourceTree = "<group>"; };
+		33119BC524E2B4D900C530E1 /* XMLParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
+		33119BC624E2B4D900C530E1 /* XMLParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 		33DE0E8324DA5C0D00CB9483 /* StocksHotPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksHotPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33DE0E8624DA5C0D00CB9483 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		33DE0E8724DA5C0D00CB9483 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -303,11 +339,32 @@
 			name = settingCell;
 			sourceTree = "<group>";
 		};
-		33119ADD24DD3C9700C530E1 /* queryStocks */ = {
+		33119ADD24DD3C9700C530E1 /* wenStocks */ = {
 			isa = PBXGroup;
 			children = (
+				33119BAC24E134FF00C530E1 /* wenStocksCell */,
+				33119B9724E10E6700C530E1 /* wenStocks.h */,
+				33119B9824E10E6700C530E1 /* wenStocks.m */,
 			);
-			name = queryStocks;
+			name = wenStocks;
+			sourceTree = "<group>";
+		};
+		33119BAC24E134FF00C530E1 /* wenStocksCell */ = {
+			isa = PBXGroup;
+			children = (
+				33119BAD24E1352000C530E1 /* wenStocksCell.h */,
+				33119BAE24E1352000C530E1 /* wenStocksCell.m */,
+			);
+			name = wenStocksCell;
+			sourceTree = "<group>";
+		};
+		33119BC424E2B4BC00C530E1 /* XMLparser */ = {
+			isa = PBXGroup;
+			children = (
+				33119BC524E2B4D900C530E1 /* XMLParser.h */,
+				33119BC624E2B4D900C530E1 /* XMLParser.m */,
+			);
+			name = XMLparser;
 			sourceTree = "<group>";
 		};
 		33DE0E7A24DA5C0D00CB9483 = {
@@ -335,7 +392,9 @@
 		33DE0E8524DA5C0D00CB9483 /* StocksHotPoint */ = {
 			isa = PBXGroup;
 			children = (
-				33119ADD24DD3C9700C530E1 /* queryStocks */,
+				33119BC424E2B4BC00C530E1 /* XMLparser */,
+				33119BC324E2988400C530E1 /* StocksHotPoint.entitlements */,
+				33119ADD24DD3C9700C530E1 /* wenStocks */,
 				33DE0EBB24DA76AF00CB9483 /* image */,
 				33119AC524DD33BC00C530E1 /* setting */,
 				33119A4D24DB975A00C530E1 /* navigationBar */,
@@ -383,8 +442,14 @@
 				33119AD524DD393A00C530E1 /* 设置-箭头.png */,
 				33119ACB24DD372300C530E1 /* 设置-底.png */,
 				33119B9324DE659900C530E1 /* 首页-刷新箭头-下.png */,
+				33119BA424E11EE100C530E1 /* 气泡框2.png */,
+				33119B9C24E1196D00C530E1 /* 问股-输入框.png */,
+				33119BA824E11EF800C530E1 /* 气泡框1.png */,
 				33119B9124DE659100C530E1 /* 首页-刷新箭头-上.png */,
+				33119BB424E17CAE00C530E1 /* 运营-底.png */,
+				33119BA024E11EDB00C530E1 /* 问股-发送按钮.png */,
 				33119A5F24DBBCB100C530E1 /* 首页-切换bar-选中状态.png */,
+				33119B9524E0EC2F00C530E1 /* 朋友圈.png */,
 				33119AE724DD456800C530E1 /* 腾讯微博.png */,
 				33119AE624DD456800C530E1 /* 新浪微博.png */,
 				33119AE224DD453900C530E1 /* 分享-弹出框-底.png */,
@@ -533,6 +598,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33119BA524E11EE100C530E1 /* 气泡框2.png in Resources */,
+				33119BA924E11EF800C530E1 /* 气泡框1.png in Resources */,
 				33119AE324DD453900C530E1 /* 分享-弹出框-底.png in Resources */,
 				33119AA124DCE46700C530E1 /* 首页-圆角矩形.png in Resources */,
 				33119A5424DBB12500C530E1 /* 标题栏.png in Resources */,
@@ -543,7 +610,9 @@
 				33119A6024DBBCB100C530E1 /* 首页-切换bar-选中状态.png in Resources */,
 				33119B9424DE659900C530E1 /* 首页-刷新箭头-下.png in Resources */,
 				33119A8D24DBE8E400C530E1 /* 资讯详情-分割线.png in Resources */,
+				33119B9624E0EC2F00C530E1 /* 朋友圈.png in Resources */,
 				33DE0E9624DA5C0F00CB9483 /* LaunchScreen.storyboard in Resources */,
+				33119BA124E11EDB00C530E1 /* 问股-发送按钮.png in Resources */,
 				33119AE824DD456800C530E1 /* 新浪微博.png in Resources */,
 				33119AF324DD458200C530E1 /* 运营-同花顺logo.png in Resources */,
 				33119AAF24DD004F00C530E1 /* 首页-点评.png in Resources */,
@@ -555,7 +624,9 @@
 				33119AEB24DD456800C530E1 /* 腾讯微博.png in Resources */,
 				33119AD624DD393A00C530E1 /* 设置-箭头.png in Resources */,
 				33119ACC24DD372300C530E1 /* 设置-底.png in Resources */,
+				33119B9D24E1196D00C530E1 /* 问股-输入框.png in Resources */,
 				33119AEF24DD456F00C530E1 /* 微信好友.png in Resources */,
+				33119BB524E17CAF00C530E1 /* 运营-底.png in Resources */,
 				33119ADA24DD395000C530E1 /* 运营-箭头.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,11 +641,15 @@
 				33119AA224DCE46700C530E1 /* 首页-圆角矩形.png in Resources */,
 				33119A8E24DBE8E400C530E1 /* 资讯详情-分割线.png in Resources */,
 				33119ACD24DD372300C530E1 /* 设置-底.png in Resources */,
+				33119BAA24E11EF800C530E1 /* 气泡框1.png in Resources */,
 				33DE0EBE24DA76C100CB9483 /* 个人中心-图标.png in Resources */,
+				33119B9E24E1196D00C530E1 /* 问股-输入框.png in Resources */,
 				33119AE024DD452300C530E1 /* 分享-图标.png in Resources */,
 				33119A5924DBB35000C530E1 /* 分享-底.png in Resources */,
+				33119BA624E11EE100C530E1 /* 气泡框2.png in Resources */,
 				33119AE424DD453900C530E1 /* 分享-弹出框-底.png in Resources */,
 				33119A4B24DB8D7600C530E1 /* 标题栏-设置图标.png in Resources */,
+				33119BA224E11EDB00C530E1 /* 问股-发送按钮.png in Resources */,
 				33119AEC24DD456800C530E1 /* 腾讯微博.png in Resources */,
 				33119A6124DBBCB100C530E1 /* 首页-切换bar-选中状态.png in Resources */,
 				33119AF424DD458200C530E1 /* 运营-同花顺logo.png in Resources */,
@@ -596,11 +671,15 @@
 				33119AA324DCE46700C530E1 /* 首页-圆角矩形.png in Resources */,
 				33119A8F24DBE8E400C530E1 /* 资讯详情-分割线.png in Resources */,
 				33119ACE24DD372300C530E1 /* 设置-底.png in Resources */,
+				33119BAB24E11EF800C530E1 /* 气泡框1.png in Resources */,
 				33DE0EBF24DA76C100CB9483 /* 个人中心-图标.png in Resources */,
+				33119B9F24E1196D00C530E1 /* 问股-输入框.png in Resources */,
 				33119AE124DD452300C530E1 /* 分享-图标.png in Resources */,
 				33119A5A24DBB35000C530E1 /* 分享-底.png in Resources */,
+				33119BA724E11EE100C530E1 /* 气泡框2.png in Resources */,
 				33119AE524DD453900C530E1 /* 分享-弹出框-底.png in Resources */,
 				33119A4C24DB8D7600C530E1 /* 标题栏-设置图标.png in Resources */,
+				33119BA324E11EDB00C530E1 /* 问股-发送按钮.png in Resources */,
 				33119AED24DD456800C530E1 /* 腾讯微博.png in Resources */,
 				33119A6224DBBCB100C530E1 /* 首页-切换bar-选中状态.png in Resources */,
 				33119AF524DD458200C530E1 /* 运营-同花顺logo.png in Resources */,
@@ -663,7 +742,9 @@
 			files = (
 				33DE0E8E24DA5C0D00CB9483 /* ViewController.m in Sources */,
 				33119A5024DB982900C530E1 /* navigationBar.m in Sources */,
+				33119BC724E2B4D900C530E1 /* XMLParser.m in Sources */,
 				33119AC224DD1D4300C530E1 /* ListLoader.m in Sources */,
+				33119B9924E10E6700C530E1 /* wenStocks.m in Sources */,
 				33119AB924DD19E600C530E1 /* Webpage.m in Sources */,
 				33119AC824DD33D700C530E1 /* settingViewController.m in Sources */,
 				33119A9824DC10BB00C530E1 /* ListModel.m in Sources */,
@@ -671,6 +752,7 @@
 				33DE0E9924DA5C0F00CB9483 /* main.m in Sources */,
 				33119A6C24DBD45100C530E1 /* hotDotContent.m in Sources */,
 				33DE0E8B24DA5C0D00CB9483 /* SceneDelegate.m in Sources */,
+				33119BAF24E1352000C530E1 /* wenStocksCell.m in Sources */,
 				33119AD224DD388500C530E1 /* settingTableViewCell.m in Sources */,
 				33119A8924DBDF7700C530E1 /* hoursTableViewCell.m in Sources */,
 				33119A7E24DBDF4200C530E1 /* hotDotCell.m in Sources */,
@@ -682,9 +764,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33119BC824E2B4D900C530E1 /* XMLParser.m in Sources */,
 				33119ABA24DD19E600C530E1 /* Webpage.m in Sources */,
 				33DE0EA324DA5C0F00CB9483 /* StocksHotPointTests.m in Sources */,
 				33119A7F24DBDF4200C530E1 /* hotDotCell.m in Sources */,
+				33119B9A24E10E6700C530E1 /* wenStocks.m in Sources */,
 				33119A9924DC10BB00C530E1 /* ListModel.m in Sources */,
 				33119A5124DB982900C530E1 /* navigationBar.m in Sources */,
 				33119AD324DD388500C530E1 /* settingTableViewCell.m in Sources */,
@@ -692,6 +776,7 @@
 				33119A6D24DBD45100C530E1 /* hotDotContent.m in Sources */,
 				33119AC924DD33D700C530E1 /* settingViewController.m in Sources */,
 				33119A8424DBDF5500C530E1 /* hoursTableView.m in Sources */,
+				33119BB024E1352000C530E1 /* wenStocksCell.m in Sources */,
 				33119AC324DD1D4300C530E1 /* ListLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,9 +785,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33119BC924E2B4D900C530E1 /* XMLParser.m in Sources */,
 				33119ABB24DD19E600C530E1 /* Webpage.m in Sources */,
 				33DE0EAE24DA5C0F00CB9483 /* StocksHotPointUITests.m in Sources */,
 				33119A8024DBDF4200C530E1 /* hotDotCell.m in Sources */,
+				33119B9B24E10E6700C530E1 /* wenStocks.m in Sources */,
 				33119A9A24DC10BB00C530E1 /* ListModel.m in Sources */,
 				33119A5224DB982900C530E1 /* navigationBar.m in Sources */,
 				33119AD424DD388500C530E1 /* settingTableViewCell.m in Sources */,
@@ -710,6 +797,7 @@
 				33119A6E24DBD45100C530E1 /* hotDotContent.m in Sources */,
 				33119ACA24DD33D700C530E1 /* settingViewController.m in Sources */,
 				33119A8524DBDF5500C530E1 /* hoursTableView.m in Sources */,
+				33119BB124E1352000C530E1 /* wenStocksCell.m in Sources */,
 				33119AC424DD1D4300C530E1 /* ListLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -864,6 +952,7 @@
 			baseConfigurationReference = 3BEF56362ACD4C7AE4C6EA83 /* Pods-StocksHotPoint.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = StocksHotPoint/StocksHotPoint.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StocksHotPoint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -881,6 +970,7 @@
 			baseConfigurationReference = 34D08A9CA31E2F2DAC42CE45 /* Pods-StocksHotPoint.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = StocksHotPoint/StocksHotPoint.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StocksHotPoint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
