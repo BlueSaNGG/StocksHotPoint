@@ -44,13 +44,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //加入一个webview
     [self.view addSubview:({
         self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-192)];
         //对webview加入delegate控制
         self.webView.navigationDelegate = self;
-
+        self.webView.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
         self.webView;
     })];
     
@@ -99,7 +98,7 @@
     [downloadLine setFrame:CGRectMake(10, 0, self.view.bounds.size.width-20, 2)];
     //总view
     UIView *downloadView = [[UIView alloc] initWithFrame:CGRectMake(0, self.shareView.frame.origin.y-84, self.view.bounds.size.width, 84)];
-    downloadView.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:240/255.0];
+    downloadView.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
     //下载框
     UIView *downLoadBtnView = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 290, 44)];
     [downLoadBtnView setCenter:CGPointMake(downloadView.center.x, downLoadBtnView.center.y)];

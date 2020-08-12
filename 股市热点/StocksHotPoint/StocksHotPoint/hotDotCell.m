@@ -65,11 +65,23 @@
 //        _abstractLabel.backgroundColor = [UIColor yellowColor];
         //判断有无图片
         if(Data[@"pic"]) {
-            UIImageView *pic = [[UIImageView alloc] initWithImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:Data[@"pic"]]]]];
-            [pic setFrame:CGRectMake(_titleLabel.frame.origin.x, _titleLabel.frame.origin.y+_titleLabel.frame.size.height+20, 40, 40)];
-            [self addSubview:pic];
-            [_abstractLabel setFrame:CGRectMake(pic.bounds.origin.x + 60, _titleLabel.frame.origin.y+_titleLabel.frame.size.height+10, _titleLabel.frame.size.width-60, 50)];
+            //创建新线程
+            dispatch_queue_global_t downloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_queue_main_t mainQueue = dispatch_get_main_queue();
+            dispatch_async(downloadQueue, ^{
+                //下载图片放在其他线程
+                UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:Data[@"pic"]]]];
+                dispatch_async(mainQueue, ^{
+                    //ui操作放在主线程
+                    UIImageView *pic = [[UIImageView alloc] initWithImage:image];
+                    [pic setFrame:CGRectMake(self.titleLabel.frame.origin.x, self.titleLabel.frame.origin.y+self.titleLabel.frame.size.height+20, 40, 40)];
+                    [self addSubview:pic];
+                    [self.abstractLabel setFrame:CGRectMake(pic.bounds.origin.x + 60, self.titleLabel.frame.origin.y+self.titleLabel.frame.size.height+10, self.titleLabel.frame.size.width-60, 50)];
+                });
+            });
+            
         }
+        
         [self addSubview:_abstractLabel];
         
         //设置时间

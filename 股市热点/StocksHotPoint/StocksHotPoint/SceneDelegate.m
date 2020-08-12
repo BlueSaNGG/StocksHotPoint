@@ -13,6 +13,8 @@
 #import <UMCommon/UMCommon.h>
 #import <UMCommonLog/UMCommonLogManager.h>
 
+
+
 @interface SceneDelegate ()
 
 @end
@@ -41,6 +43,7 @@
 //    [UMCommonLogManager setUpUMCommonLogManager];
 //    [UMConfigure setLogEnabled:YES];
     [UMConfigure initWithAppkey:@"5f3354ceb4b08b653e939c6c" channel:@"App Store"];
+
 }
 
 

@@ -79,6 +79,10 @@
     return 44;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //点击后颜色变回
+     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 
 
 @end

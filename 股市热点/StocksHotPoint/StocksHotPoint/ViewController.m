@@ -21,6 +21,7 @@
 #import <NotificationCenter/NotificationCenter.h>
 #import <UserNotifications/UserNotifications.h>
 #import <UMCommon/MobClick.h>
+#import <MBProgressHUD.h>
 
 
 
@@ -58,13 +59,10 @@
     return self;
 }
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 //全部背景
     self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:240/255.0];
-
 
 // - 导航栏设置
 //设置按钮
@@ -85,8 +83,6 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"标题栏.png"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
-
-    
 // - 次导航栏设置
     //设置UIview位置
     UIView *subNav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 33)];
@@ -142,12 +138,15 @@
     [self.view addSubview:_hotDotTableView];
 //热点掘金头部下拉请求
     _hotDotTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        //进行网络请求
-        [self getHotDot];
-        [self->_hotDotTableView.mj_header endRefreshing];
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+             //进行网络请求
+             [self getHotDot];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                [self->_hotDotTableView.mj_header endRefreshing];
+             });
+         });
     }];
 
-    
 // - 初始化24小时滚动tableview
     _hoursTableView = [[hoursTableView alloc] initWithFrame:CGRectMake(0, _leftSubBtn.bounds.size.height+16, self.view.bounds.size.width, self.view.bounds.size.height-(_leftSubBtn.center.y+100))];
     _hoursTableView.delegate = self;
@@ -155,16 +154,25 @@
     
 //24小时滚动头部下拉请求
     _hoursTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self getHours];
-        [self->_hoursTableView.mj_header endRefreshing];
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+             //进行网络请求
+             [self getHours];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                [self->_hoursTableView.mj_header endRefreshing];
+             });
+         });
     }];
     
     
 //24小时滚动底部上拉请求
     _hoursTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        //显示更多的20条页面
-        [self getHoursWithTimes];
-        [self->_hoursTableView.mj_footer endRefreshing];
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+             //显示更多的20条页面
+             [self getHoursWithTimes];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                [self->_hoursTableView.mj_footer endRefreshing];
+             });
+         });
     }];
 
 
@@ -185,13 +193,23 @@
         _hotDataArray = result;
         [self.hotDotTableView reloadData];
     } else{
-        [_hotDotTableView.mj_header beginRefreshing];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [hud.label setText:@"正在连接服务器"];
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            [self.hotDotTableView.mj_header beginRefreshing];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
+        });
     }
     
     
     
     //加入notification监听app是否进入前台——进入则刷新24小时滚动界面
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadHours) name:UISceneDidActivateNotification object:nil];
+    
+    
+ 
 }
 
 //移除监听事件
@@ -338,11 +356,8 @@
         else {
             [self refreshFailedWithStr:@"联网失败，请检查网络"];
         }
-//        NSLog(@"%ld",error.code);
     }];
 }
-
-
 
 //请求24小时滚动
 -(void)getHours {
@@ -368,9 +383,9 @@
     _hoursTimes++;
 }
 
-
 #pragma mark - 进入问股页面
 - (void)wenStockClicked {
+    [self msgNotification];
     //问股点击埋点
     [MobClick event:@"wengu"];
     //进入问股页面
@@ -398,33 +413,30 @@
 
 #pragma mark - 请求打开消息推送通知
 - (void)viewWillAppear:(BOOL)animated {
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0){
-        if (@available(iOS 10.0, *)) {
-            UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-//            __weak typeof(self) weakSelf = self;
-            [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                if (granted) {
-                    [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
-                        if (settings.authorizationStatus == UNAuthorizationStatusAuthorized){
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                [[UIApplication sharedApplication] registerForRemoteNotifications];
-                            });
-                        }
-                    }];
-                }
-            }];
-        }
-    } else if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0){
-        if (@available(iOS 8.0, *)) {
-            if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-                UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
-                [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-                [[UIApplication sharedApplication] registerForRemoteNotifications];
-            } else {
-                [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-            }
-        }
-    }
+    UNUserNotificationCenter * center = [UNUserNotificationCenter currentNotificationCenter];
+    UNAuthorizationOptions options = UNAuthorizationOptionAlert + UNAuthorizationOptionSound;
+    [center requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        
+    }];
+}
+
+#pragma mark - 设置消息推送
+- (void)msgNotification{
+    UNUserNotificationCenter * center = [UNUserNotificationCenter currentNotificationCenter];
+    //创建一个notification
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+    content.title = @"股市热点";
+    content.subtitle = @"问股";
+    content.body = @"您好，有什么需要帮忙的吗？";
+    content.sound = [UNNotificationSound defaultSound];
+    
+    //trigger
+    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:10 repeats:NO];
+    //setting up the request for notification
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"UNLocal Notification" content:content trigger:trigger];
+    
+    //加入notification
+    [center addNotificationRequest:request withCompletionHandler:nil];
 }
 
 #pragma mark - 从后台进入app时重新加载24小时滚动
@@ -434,6 +446,8 @@
     //进行刷新+网络请求
     [_hoursTableView.mj_header beginRefreshing];
 }
+
+
 
 @end
 
