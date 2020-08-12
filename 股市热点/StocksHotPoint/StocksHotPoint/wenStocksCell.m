@@ -42,10 +42,11 @@
     if (!_label) {
         _label = [[UILabel alloc] init];
         _label.font = [UIFont systemFontOfSize:14];
-        _label.preferredMaxLayoutWidth = 300;
-        [_label setTextAlignment:NSTextAlignmentLeft];
+        _label.preferredMaxLayoutWidth = 250;
         [_label setNumberOfLines:0];
-
+        //布局优先级设置
+        [_label setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [_label setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     }
     return _label;
 }
@@ -55,9 +56,10 @@
     if (!_imgView) {
         _imgView = [[UIImageView alloc] init];
         UIImage *backImg = [UIImage imageNamed:@"气泡框1.png"];
-        [backImg resizableImageWithCapInsets:UIEdgeInsetsMake(backImg.size.height*0.9, backImg.size.width*0.9, backImg.size.height*0.9, backImg.size.width*0.9) resizingMode:UIImageResizingModeStretch];
+        backImg = [backImg resizableImageWithCapInsets:UIEdgeInsetsMake(backImg.size.height*0.51, backImg.size.width*0.51, backImg.size.height*0.51, backImg.size.width*0.51) resizingMode:UIImageResizingModeStretch];
+        
         _imgView.image = backImg;
-        [self.contentView addSubview:_imgView];
+        [self addSubview:_imgView];
     }
     return _imgView;
 }
@@ -65,19 +67,17 @@
 - (void)setStrRight:(NSString *)str {
     _str = str;
     _label.text = _str;
-//    _label.backgroundColor = [UIColor redColor];
     [_label mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_label.superview.mas_top).offset(20);
-        make.right.equalTo(_label.superview.mas_right).offset(-40);
-        make.bottom.equalTo(_label.superview.mas_bottom).offset(10);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-20);
+        make.top.mas_equalTo(self.contentView.mas_top).offset(20);
+        make.right.mas_equalTo(self.contentView.mas_right).offset(-40);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-20);
     }];
 
     [_imgView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_label).offset(-25);
-        make.top.equalTo(_label).offset(-10);
-        make.bottom.equalTo(_label).offset(10);
-        make.right.equalTo(_label).offset(25);
+        make.left.mas_equalTo(_label).offset(-25);
+        make.top.mas_equalTo(_label).offset(-10);
+        make.bottom.mas_equalTo(_label).offset(10);
+        make.right.mas_equalTo(_label).offset(25);
     }];
 }
 
@@ -87,9 +87,9 @@
     if (!_imgView) {
         _imgView = [[UIImageView alloc] init];
         UIImage *backImg = [UIImage imageNamed:@"气泡框2.png"];
-        [backImg resizableImageWithCapInsets:UIEdgeInsetsMake(backImg.size.height*0.7, backImg.size.width*0.7, backImg.size.height*0.7, backImg.size.width*0.7) resizingMode:UIImageResizingModeStretch];
+        backImg = [backImg resizableImageWithCapInsets:UIEdgeInsetsMake(backImg.size.height*0.51, backImg.size.width*0.51, backImg.size.height*0.51, backImg.size.width*0.51) resizingMode:UIImageResizingModeStretch];
         _imgView.image = backImg;
-        [self.contentView addSubview:_imgView];
+        [self addSubview:_imgView];
     }
     return _imgView;
 }
@@ -97,19 +97,18 @@
 - (void)setStrLeft:(NSString *)str {
     _str = str;
     _label.text = _str;
-//    _label.backgroundColor = [UIColor redColor];
     [_label mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_label.superview.mas_top).offset(20);
-        make.left.equalTo(_label.superview.mas_left).offset(40);
-        make.bottom.equalTo(_label.superview.mas_bottom).offset(10);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-20);
+        make.top.mas_equalTo(self.contentView.mas_top).offset(20);
+        make.left.mas_equalTo(self.contentView.mas_left).offset(40);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-20);
+
     }];
-    
+
     [_imgView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_label).offset(-25);
-        make.top.equalTo(_label).offset(-10);
-        make.bottom.equalTo(_label).offset(10);
-        make.right.equalTo(_label).offset(25);
+        make.left.mas_equalTo(_label).offset(-15);
+        make.top.mas_equalTo(_label).offset(-15);
+        make.bottom.mas_equalTo(_label).offset(15);
+        make.right.mas_equalTo(_label).offset(15);
     }];
 }
 @end

@@ -15,24 +15,36 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
   - MJRefresh (3.4.3)
+  - UMCCommon (7.1.1)
+  - UMCCommonLog (2.0.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 4.0)
   - Masonry
+  - MBProgressHUD (~> 1.2.0)
   - MJRefresh
+  - UMCCommon
+  - UMCCommonLog
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - Masonry
+    - MBProgressHUD
     - MJRefresh
+    - UMCCommon
+    - UMCCommonLog
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  UMCCommon: f455f92c125342e360d6ad9eafe484945351eeb5
+  UMCCommonLog: 9b7ddde5d14a52fc1986ba5ac3121b8b2f433638
 
-PODFILE CHECKSUM: 4ea35515ee334c22a2455767dbc4b3735a6d417b
+PODFILE CHECKSUM: 3bc715ee1d8ce9e37044e691b3c19ef98e965786
 
 COCOAPODS: 1.9.3

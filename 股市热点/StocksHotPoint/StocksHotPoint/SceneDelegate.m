@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import "navigationBar.h"
 #import "hoursTableView.h"
+#import <UMCommon/UMCommon.h>
+#import <UMCommonLog/UMCommonLogManager.h>
 
 @interface SceneDelegate ()
 
@@ -33,6 +35,12 @@
     
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
+    //初始化友盟
+    //设置日志通知
+//    [UMCommonLogManager setUpUMCommonLogManager];
+//    [UMConfigure setLogEnabled:YES];
+    [UMConfigure initWithAppkey:@"5f3354ceb4b08b653e939c6c" channel:@"App Store"];
 }
 
 
@@ -47,6 +55,7 @@
 - (void)sceneDidBecomeActive:(UIScene *)scene {
     // Called when the scene has moved from an inactive state to an active state.
     // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+    
 }
 
 

@@ -9,6 +9,8 @@
 #import "Webpage.h"
 #import <WebKit/WebKit.h>  //需要引入webkit
 #import "wenStocks.h"
+#import <UMCommon/MobClick.h>
+#import <MBProgressHUD.h>
 
 @interface Webpage ()<WKNavigationDelegate>
 @property(nonatomic, strong ,readwrite) WKWebView *webView;
@@ -42,9 +44,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
-
     
     //加入一个webview
     [self.view addSubview:({
@@ -85,11 +84,12 @@
         [self.shareView addSubview:shareImg];
   
 //// - 使用uibutton
-        UIButton *ShareBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.webView.frame.origin.x, self.webView.frame.size.height+self.webView.frame.origin.y, self.view.bounds.size.width, 138)];
+        UIButton *ShareBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.webView.frame.origin.x, _shareView.frame.origin.y, self.view.bounds.size.width, 138)];
         ShareBtn.backgroundColor = [UIColor clearColor];
         ShareBtn.center = CGPointMake(self.shareView.bounds.size.width/2, self.shareView.bounds.size.height/4);
         [ShareBtn addTarget:self action:@selector(shareViewClicked) forControlEvents:UIControlEventTouchUpInside];
         [self.shareView addSubview:ShareBtn];
+
         self.shareView;
     })];
     
@@ -146,6 +146,7 @@
     //朋友圈
     UIButton *pyqBtn = [[UIButton alloc] initWithFrame:CGRectMake(25, 80, 60, 60)];
     [pyqBtn setImage:[UIImage imageNamed:@"朋友圈.png"] forState:UIControlStateNormal];
+    [pyqBtn addTarget:self action:@selector(pyqClicked) forControlEvents:UIControlEventTouchUpInside];
     [_shareBox addSubview:pyqBtn];
     
     UILabel *pyqLabel = [[UILabel alloc] initWithFrame:CGRectMake(25, 120, 100, 60)];
@@ -155,6 +156,7 @@
     //微信好友
     UIButton *wxhyBtn = [[UIButton alloc] initWithFrame:CGRectMake(125, 80, 60, 60)];
     [wxhyBtn setImage:[UIImage imageNamed:@"微信好友.png"] forState:UIControlStateNormal];
+    [wxhyBtn addTarget:self action:@selector(wxhyClicked) forControlEvents:UIControlEventTouchUpInside];
     [_shareBox addSubview:wxhyBtn];
     
     UILabel *wxhyLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, 120, 100, 60)];
@@ -164,6 +166,7 @@
     //新浪微博
     UIButton *xlwbBtn = [[UIButton alloc] initWithFrame:CGRectMake(225, 80, 60, 60)];
     [xlwbBtn setImage:[UIImage imageNamed:@"新浪微博.png"] forState:UIControlStateNormal];
+    [xlwbBtn addTarget:self action:@selector(xlwbClicked) forControlEvents:UIControlEventTouchUpInside];
     [_shareBox addSubview:xlwbBtn];
     
     UILabel *xlwbLabel = [[UILabel alloc] initWithFrame:CGRectMake(225, 120, 100, 60)];
@@ -173,6 +176,7 @@
     //腾讯微博
     UIButton *txwbBtn = [[UIButton alloc] initWithFrame:CGRectMake(325, 80, 60, 60)];
     [txwbBtn setImage:[UIImage imageNamed:@"腾讯微博.png"] forState:UIControlStateNormal];
+    [txwbBtn addTarget:self action:@selector(txwbClicked) forControlEvents:UIControlEventTouchUpInside];
     [_shareBox addSubview:txwbBtn];
     
     UILabel *txwbLabel = [[UILabel alloc] initWithFrame:CGRectMake(325, 120, 100, 60)];
@@ -193,7 +197,7 @@
     [_shareBox addSubview:cancelLine];
     [_shareBox addSubview:cancelBtn];
 
-//分享后的虚化背景
+//分享后的暗化背景
     _shareBack = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     _shareBack.backgroundColor = [UIColor colorWithRed:20/255.0 green:20/255.0 blue:20/255.0 alpha:0.5];
     //点击消失
@@ -214,6 +218,7 @@
     //对webview进行kvo监听
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     
+
 }
 //delegate——确定跳转
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
@@ -233,6 +238,8 @@
 
 #pragma mark - share点击事件
 - (void)shareViewClicked {
+    //埋点
+    [MobClick event:@"share"];
     //显示背景
     [_shareBack setHidden:NO];
     //点击后显示分享按钮
@@ -263,4 +270,67 @@
 - (void)downloadClicked {
 
 }
+
+#pragma mark - 点击分享
+- (void)pyqClicked {
+    //点击埋点
+    [MobClick event:@"share" attributes:@{@"share":@"pyq"}];
+    //返回
+    [self cancelClicked];
+    [self showProgress];
+}
+
+- (void)wxhyClicked {
+    //点击埋点
+    [MobClick event:@"share" attributes:@{@"share":@"wxhy"}];
+    //返回
+    [self cancelClicked];
+    [self showProgress];
+}
+
+- (void)xlwbClicked {
+    //点击埋点
+    [MobClick event:@"share" attributes:@{@"share":@"xlwb"}];
+    //返回
+    [self cancelClicked];
+    [self showProgress];
+}
+
+- (void)txwbClicked {
+    //点击埋点
+    [MobClick event:@"share" attributes:@{@"share":@"txwb"}];
+    //返回
+    [self cancelClicked];
+    [self showProgress];
+}
+
+
+
+#pragma mark - 设置MBProgressHUD
+- (void)showProgress {
+    //加载框
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud.label setText:@"正在分享..."];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [NSThread sleepForTimeInterval:1];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            //初始化错误提示
+            UILabel *failAlert = [[UILabel alloc]init];
+            failAlert.font = [UIFont systemFontOfSize:36];
+            failAlert.backgroundColor = [UIColor grayColor];
+            failAlert.textColor = [UIColor whiteColor];
+            [failAlert setText:@"分享成功"];
+            [failAlert sizeToFit];
+            [failAlert setCenter:CGPointMake(self.view.center.x, self.view.center.y-50)];
+            [self.view addSubview:failAlert];
+            [UIView animateWithDuration:2 animations:^{
+                failAlert.alpha=0;
+            } completion:^(BOOL finished) {
+                [failAlert removeFromSuperview];
+            }];
+        });
+    });
+}
+
 @end

@@ -43,7 +43,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //全部背景
-        self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:240/255.0];
+        self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
+    
 
     // - 导航栏设置
     //title设置
@@ -73,7 +74,6 @@
     //底部工具栏
     _toolBar = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-112, self.view.bounds.size.width, 44)];
     _toolBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"分享-底.png"]];
-    NSLog(@"%lf %lf",self.view.bounds.size.height,self.navigationController.view.bounds.origin.y);
     //加入聊天框
     _textField = [[UITextField alloc] initWithFrame:CGRectMake(9, 9, 315, 30)];
     _textField.backgroundColor = [UIColor whiteColor];
@@ -159,12 +159,11 @@
     [cell setStrRight:_textField.text];
     //列表中存入cell
     [_messageArray addObject:cell];
-    
+    [self.tableView reloadData];
+        
     //网络请求
     [self pushText];
         
-    //刷新table
-    [_tableView reloadData];
     //清空输入框
     [_textField setText:@""];
     }
@@ -193,15 +192,19 @@
     [request setValue:@"text/xml" forHTTPHeaderField:@"Content-Type"];
     //进行请求
     [[managerPost dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-//        NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-//        NSLog(@"%@",responseStr);
+        if(error) {
+            wenStocksCell *cell = [[wenStocksCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"wenStocksCell" andMessageType:ChatMessageTo];
+            [cell setStrLeft:@"不给力，数据请求失败"];
+            [self.messageArray addObject:cell];
+            [self.tableView reloadData];
+        }else {
         //xml解析
         NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithData:responseObject];
         xmlparser.delegate = self;
         [xmlparser parse];
+        }
+        
     }]resume];
-       
-
 }
 
 

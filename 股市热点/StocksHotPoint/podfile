@@ -2,4 +2,7 @@ target 'StocksHotPoint' do
 	pod 'AFNetworking', '~> 4.0'
 	pod 'MJRefresh'
 	pod 'Masonry'
+	pod 'UMCCommon'
+ 	pod 'UMCCommonLog'
+	pod 'MBProgressHUD', '~> 1.2.0'
 end

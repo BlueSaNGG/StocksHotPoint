@@ -113,14 +113,11 @@
 		33119BB024E1352000C530E1 /* wenStocksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BAE24E1352000C530E1 /* wenStocksCell.m */; };
 		33119BB124E1352000C530E1 /* wenStocksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BAE24E1352000C530E1 /* wenStocksCell.m */; };
 		33119BB524E17CAF00C530E1 /* 运营-底.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BB424E17CAE00C530E1 /* 运营-底.png */; };
-		33119BC724E2B4D900C530E1 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BC624E2B4D900C530E1 /* XMLParser.m */; };
-		33119BC824E2B4D900C530E1 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BC624E2B4D900C530E1 /* XMLParser.m */; };
-		33119BC924E2B4D900C530E1 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BC624E2B4D900C530E1 /* XMLParser.m */; };
+		33119BCF24E37C0A00C530E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33119BCE24E37C0900C530E1 /* Assets.xcassets */; };
 		33DE0E8824DA5C0D00CB9483 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DE0E8724DA5C0D00CB9483 /* AppDelegate.m */; };
 		33DE0E8B24DA5C0D00CB9483 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DE0E8A24DA5C0D00CB9483 /* SceneDelegate.m */; };
 		33DE0E8E24DA5C0D00CB9483 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DE0E8D24DA5C0D00CB9483 /* ViewController.m */; };
 		33DE0E9124DA5C0D00CB9483 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33DE0E8F24DA5C0D00CB9483 /* Main.storyboard */; };
-		33DE0E9324DA5C0F00CB9483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33DE0E9224DA5C0F00CB9483 /* Assets.xcassets */; };
 		33DE0E9624DA5C0F00CB9483 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33DE0E9424DA5C0F00CB9483 /* LaunchScreen.storyboard */; };
 		33DE0E9924DA5C0F00CB9483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DE0E9824DA5C0F00CB9483 /* main.m */; };
 		33DE0EA324DA5C0F00CB9483 /* StocksHotPointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DE0EA224DA5C0F00CB9483 /* StocksHotPointTests.m */; };
@@ -200,8 +197,7 @@
 		33119BAE24E1352000C530E1 /* wenStocksCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wenStocksCell.m; sourceTree = "<group>"; };
 		33119BB424E17CAE00C530E1 /* 运营-底.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "运营-底.png"; sourceTree = "<group>"; };
 		33119BC324E2988400C530E1 /* StocksHotPoint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StocksHotPoint.entitlements; sourceTree = "<group>"; };
-		33119BC524E2B4D900C530E1 /* XMLParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
-		33119BC624E2B4D900C530E1 /* XMLParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
+		33119BCE24E37C0900C530E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33DE0E8324DA5C0D00CB9483 /* StocksHotPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksHotPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33DE0E8624DA5C0D00CB9483 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		33DE0E8724DA5C0D00CB9483 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -210,7 +206,6 @@
 		33DE0E8C24DA5C0D00CB9483 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		33DE0E8D24DA5C0D00CB9483 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		33DE0E9024DA5C0D00CB9483 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		33DE0E9224DA5C0F00CB9483 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33DE0E9524DA5C0F00CB9483 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33DE0E9724DA5C0F00CB9483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33DE0E9824DA5C0F00CB9483 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -358,15 +353,6 @@
 			name = wenStocksCell;
 			sourceTree = "<group>";
 		};
-		33119BC424E2B4BC00C530E1 /* XMLparser */ = {
-			isa = PBXGroup;
-			children = (
-				33119BC524E2B4D900C530E1 /* XMLParser.h */,
-				33119BC624E2B4D900C530E1 /* XMLParser.m */,
-			);
-			name = XMLparser;
-			sourceTree = "<group>";
-		};
 		33DE0E7A24DA5C0D00CB9483 = {
 			isa = PBXGroup;
 			children = (
@@ -392,7 +378,6 @@
 		33DE0E8524DA5C0D00CB9483 /* StocksHotPoint */ = {
 			isa = PBXGroup;
 			children = (
-				33119BC424E2B4BC00C530E1 /* XMLparser */,
 				33119BC324E2988400C530E1 /* StocksHotPoint.entitlements */,
 				33119ADD24DD3C9700C530E1 /* wenStocks */,
 				33DE0EBB24DA76AF00CB9483 /* image */,
@@ -403,8 +388,8 @@
 				33DE0E8724DA5C0D00CB9483 /* AppDelegate.m */,
 				33DE0E8924DA5C0D00CB9483 /* SceneDelegate.h */,
 				33DE0E8A24DA5C0D00CB9483 /* SceneDelegate.m */,
+				33119BCE24E37C0900C530E1 /* Assets.xcassets */,
 				33DE0E8F24DA5C0D00CB9483 /* Main.storyboard */,
-				33DE0E9224DA5C0F00CB9483 /* Assets.xcassets */,
 				33DE0E9424DA5C0F00CB9483 /* LaunchScreen.storyboard */,
 				33DE0E9724DA5C0F00CB9483 /* Info.plist */,
 				33DE0E9824DA5C0F00CB9483 /* main.m */,
@@ -602,6 +587,7 @@
 				33119BA924E11EF800C530E1 /* 气泡框1.png in Resources */,
 				33119AE324DD453900C530E1 /* 分享-弹出框-底.png in Resources */,
 				33119AA124DCE46700C530E1 /* 首页-圆角矩形.png in Resources */,
+				33119BCF24E37C0A00C530E1 /* Assets.xcassets in Resources */,
 				33119A5424DBB12500C530E1 /* 标题栏.png in Resources */,
 				33119AAB24DCFC6000C530E1 /* 首页-点评上分割线.png in Resources */,
 				33119A5C24DBB39900C530E1 /* 首页-切换bar-底.png in Resources */,
@@ -618,7 +604,6 @@
 				33119AAF24DD004F00C530E1 /* 首页-点评.png in Resources */,
 				33119B9224DE659100C530E1 /* 首页-刷新箭头-上.png in Resources */,
 				33119ADF24DD452300C530E1 /* 分享-图标.png in Resources */,
-				33DE0E9324DA5C0F00CB9483 /* Assets.xcassets in Resources */,
 				33DE0E9124DA5C0D00CB9483 /* Main.storyboard in Resources */,
 				33119A4A24DB8D7600C530E1 /* 标题栏-设置图标.png in Resources */,
 				33119AEB24DD456800C530E1 /* 腾讯微博.png in Resources */,
@@ -742,7 +727,6 @@
 			files = (
 				33DE0E8E24DA5C0D00CB9483 /* ViewController.m in Sources */,
 				33119A5024DB982900C530E1 /* navigationBar.m in Sources */,
-				33119BC724E2B4D900C530E1 /* XMLParser.m in Sources */,
 				33119AC224DD1D4300C530E1 /* ListLoader.m in Sources */,
 				33119B9924E10E6700C530E1 /* wenStocks.m in Sources */,
 				33119AB924DD19E600C530E1 /* Webpage.m in Sources */,
@@ -764,7 +748,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33119BC824E2B4D900C530E1 /* XMLParser.m in Sources */,
 				33119ABA24DD19E600C530E1 /* Webpage.m in Sources */,
 				33DE0EA324DA5C0F00CB9483 /* StocksHotPointTests.m in Sources */,
 				33119A7F24DBDF4200C530E1 /* hotDotCell.m in Sources */,
@@ -785,7 +768,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33119BC924E2B4D900C530E1 /* XMLParser.m in Sources */,
 				33119ABB24DD19E600C530E1 /* Webpage.m in Sources */,
 				33DE0EAE24DA5C0F00CB9483 /* StocksHotPointUITests.m in Sources */,
 				33119A8024DBDF4200C530E1 /* hotDotCell.m in Sources */,

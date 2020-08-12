@@ -20,7 +20,7 @@
 #import "wenStocks.h"
 #import <NotificationCenter/NotificationCenter.h>
 #import <UserNotifications/UserNotifications.h>
-
+#import <UMCommon/MobClick.h>
 
 
 
@@ -38,6 +38,7 @@
 @property(nonatomic, assign) int hoursTimes;
 @property(nonatomic, strong) wenStocks *wenGuPage;
 @property(nonatomic, strong) UIBarButtonItem *rightBtn;
+@property(nonatomic, copy) NSString *fileName;
 @end
 
 @implementation ViewController
@@ -50,6 +51,9 @@
         _hoursDataArray = [[NSMutableArray alloc] initWithCapacity:25];
         _hoursTimes = 2;
         _wenGuPage = [[wenStocks alloc] init];
+        //设置filename
+        NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+        _fileName = [path stringByAppendingPathComponent:@"redianjuejin.plist"];
     }
     return self;
 }
@@ -173,15 +177,32 @@
     [self.view addSubview:_hoursTableView];
     //进入页面，执行点击今日热点button事件
     [self leftBtnClickedFunc];
-    //对热点掘金进行一次下拉刷新
-    [_hotDotTableView.mj_header beginRefreshing];
-        
     
+    
+    //对热点掘金进行一次下拉刷新,判断是否有存储plist文件
+    NSArray *result = [NSArray arrayWithContentsOfFile:_fileName];
+    if(result) {
+        _hotDataArray = result;
+        [self.hotDotTableView reloadData];
+    } else{
+        [_hotDotTableView.mj_header beginRefreshing];
+    }
+    
+    
+    
+    //加入notification监听app是否进入前台——进入则刷新24小时滚动界面
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadHours) name:UISceneDidActivateNotification object:nil];
 }
 
+//移除监听事件
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 #pragma mark - 今日热点点击事件
 - (void)leftBtnClickedFunc {
+    //点击埋点
+    [MobClick event:@"redianjuejin"];
     //隐藏24小时滚动
     [_hoursTableView setHidden:YES];
     [_rightBtnClicked setHidden:YES];
@@ -194,6 +215,8 @@
 
 #pragma mark - 24小时滚动点击事件
 - (void)rightBtnClickedFunc {
+    //点击埋点
+    [MobClick event:@"24roll"];
     //隐藏热点掘金
     [_leftBtnClicked setHidden:YES];
     [_hotDotTableView setHidden:YES];
@@ -263,6 +286,10 @@
 
 #pragma mark - 页面跳转delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //页面跳转点击埋点
+    [MobClick event:@"zixun"];
+    //点击后颜色变回
+     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 //    跳转到webview页面
     if(tableView == self.hoursTableView) {
         ListModel *curData =[self.hoursDataArray objectAtIndex:indexPath.row];
@@ -284,12 +311,14 @@
 
 #pragma mark - 设置按钮事件
 - (void) settingClicked {
+    //设置点击埋点
+    [MobClick event:@"control"];
     [self.navigationController pushViewController:[[settingViewController alloc] init] animated:YES];
 }
 
 
 #pragma mark - 网络请求get
-//请求热点掘金
+//首次进入请求热点掘金
 -(void)getHotDot {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     //设置超时时间
@@ -299,6 +328,9 @@
     [manager GET:@"https://m.10jqka.com.cn/todayhot.json" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.hotDataArray = responseObject[@"pageItems"];
         [self.hotDotTableView reloadData];
+        //用plist存储该array
+        NSArray *array = self.hotDataArray;
+        [array writeToFile:self.fileName atomically:YES];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if(error.code == -1001) {
             [self refreshFailedWithStr:@"刷新失败"];
@@ -306,7 +338,7 @@
         else {
             [self refreshFailedWithStr:@"联网失败，请检查网络"];
         }
-        NSLog(@"%ld",error.code);
+//        NSLog(@"%ld",error.code);
     }];
 }
 
@@ -339,6 +371,9 @@
 
 #pragma mark - 进入问股页面
 - (void)wenStockClicked {
+    //问股点击埋点
+    [MobClick event:@"wengu"];
+    //进入问股页面
     [self.navigationController pushViewController:_wenGuPage animated:YES];
 }
 
@@ -361,7 +396,7 @@
        
 }
 
-#pragma mark - 打开消息推送通知
+#pragma mark - 请求打开消息推送通知
 - (void)viewWillAppear:(BOOL)animated {
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0){
         if (@available(iOS 10.0, *)) {
@@ -390,6 +425,14 @@
             }
         }
     }
+}
+
+#pragma mark - 从后台进入app时重新加载24小时滚动
+- (void)reloadHours {
+    //点击标题回滚到顶部
+    [_hoursTableView setContentOffset:CGPointMake(0,0) animated:YES];
+    //进行刷新+网络请求
+    [_hoursTableView.mj_header beginRefreshing];
 }
 
 @end
