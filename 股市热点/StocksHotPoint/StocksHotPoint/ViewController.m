@@ -25,7 +25,7 @@
 
 
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource, UNUserNotificationCenterDelegate>
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) UIView *leftBtnClicked;
 @property(nonatomic, strong) UIView *rightBtnClicked;
@@ -40,6 +40,7 @@
 @property(nonatomic, strong) wenStocks *wenGuPage;
 @property(nonatomic, strong) UIBarButtonItem *rightBtn;
 @property(nonatomic, copy) NSString *fileName;
+@property(nonatomic, assign) BOOL isAuthToNotify;
 @end
 
 @implementation ViewController
@@ -62,7 +63,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //全部背景
-    self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:240/255.0];
+    self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
 
 // - 导航栏设置
 //设置按钮
@@ -206,12 +207,20 @@
     
     
     //加入notification监听app是否进入前台——进入则刷新24小时滚动界面
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadHours) name:UISceneDidActivateNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadHours) name:UISceneWillEnterForegroundNotification object:nil];
     
-    
+    //加入notification监听app是否进入后台
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(msgNotification) name:UISceneDidEnterBackgroundNotification object:nil];
  
+    //接受前台点击事件
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wenStockClicked) name:@"clickedNotificationFront" object:nil];
+
+    //接受后台点击事件
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mainToWenStocks) name:@"clickedNotificationBack" object:nil];
+
 }
 
+#pragma mark - 删除监听事件
 //移除监听事件
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -385,7 +394,6 @@
 
 #pragma mark - 进入问股页面
 - (void)wenStockClicked {
-    [self msgNotification];
     //问股点击埋点
     [MobClick event:@"wengu"];
     //进入问股页面
@@ -413,10 +421,14 @@
 
 #pragma mark - 请求打开消息推送通知
 - (void)viewWillAppear:(BOOL)animated {
-    UNUserNotificationCenter * center = [UNUserNotificationCenter currentNotificationCenter];
+    //判断用户是否同意推送
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    self.isAuthToNotify = NO;
     UNAuthorizationOptions options = UNAuthorizationOptionAlert + UNAuthorizationOptionSound;
     [center requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {
-        
+        if(granted) {
+        self.isAuthToNotify = YES;
+        }
     }];
 }
 
@@ -431,12 +443,14 @@
     content.sound = [UNNotificationSound defaultSound];
     
     //trigger
-    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:10 repeats:NO];
+    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:NO];
     //setting up the request for notification
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"UNLocal Notification" content:content trigger:trigger];
     
+    if(self.isAuthToNotify) {
     //加入notification
     [center addNotificationRequest:request withCompletionHandler:nil];
+    }
 }
 
 #pragma mark - 从后台进入app时重新加载24小时滚动
@@ -447,8 +461,11 @@
     [_hoursTableView.mj_header beginRefreshing];
 }
 
-
-
+#pragma mark - 从后台点击推送进入，从首页到问股
+- (void)mainToWenStocks {
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    [self wenStockClicked];
+}
 @end
 
 

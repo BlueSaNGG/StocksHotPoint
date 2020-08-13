@@ -8,6 +8,7 @@
 
 #import "settingViewController.h"
 #import "settingTableViewCell.h"
+#import "AboutViewController.h"
 
 @interface settingViewController () <UITableViewDelegate, UITableViewDataSource>
 @property(nonatomic, copy) NSArray *optionsName;
@@ -81,7 +82,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //点击后颜色变回
-     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if(indexPath.section == 2) {
+        AboutViewController *aboutViewController = [[AboutViewController alloc] init];
+        [self.navigationController pushViewController:aboutViewController animated:YES];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
 }
 
 

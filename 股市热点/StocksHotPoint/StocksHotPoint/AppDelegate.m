@@ -51,9 +51,19 @@
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler __API_AVAILABLE(macos(10.14), ios(10.0), watchos(3.0), tvos(10.0)) {
     UNNotificationPresentationOptions presentationOptions = UNNotificationPresentationOptionAlert + UNNotificationPresentationOptionSound;
     completionHandler(presentationOptions);
+
 }
 
-
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler __API_AVAILABLE(macos(10.14), ios(10.0), watchos(3.0)) __API_UNAVAILABLE(tvos) {
+    //判断点击时程序是否在前台运行
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {
+        //前台则到问股
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"clickedNotificationFront" object:nil];
+    }else {
+        //后台则到首页
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"clickedNotificationBack" object:nil];
+    }
+}
  
 
 

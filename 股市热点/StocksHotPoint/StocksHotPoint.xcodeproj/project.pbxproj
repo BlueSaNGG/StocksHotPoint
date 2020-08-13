@@ -114,6 +114,18 @@
 		33119BB124E1352000C530E1 /* wenStocksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BAE24E1352000C530E1 /* wenStocksCell.m */; };
 		33119BB524E17CAF00C530E1 /* 运营-底.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BB424E17CAE00C530E1 /* 运营-底.png */; };
 		33119BCF24E37C0A00C530E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33119BCE24E37C0900C530E1 /* Assets.xcassets */; };
+		33119BD324E4DF5300C530E1 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BD224E4DF5300C530E1 /* AboutViewController.m */; };
+		33119BD424E4DF5300C530E1 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BD224E4DF5300C530E1 /* AboutViewController.m */; };
+		33119BD524E4DF5300C530E1 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33119BD224E4DF5300C530E1 /* AboutViewController.m */; };
+		33119BD724E4E1CF00C530E1 /* ICON-1024-底.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BD624E4E1CF00C530E1 /* ICON-1024-底.png */; };
+		33119BD824E4E1CF00C530E1 /* ICON-1024-底.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BD624E4E1CF00C530E1 /* ICON-1024-底.png */; };
+		33119BD924E4E1CF00C530E1 /* ICON-1024-底.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BD624E4E1CF00C530E1 /* ICON-1024-底.png */; };
+		33119BDB24E4E58D00C530E1 /* 关于-同花顺logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BDA24E4E58D00C530E1 /* 关于-同花顺logo.png */; };
+		33119BDC24E4E58D00C530E1 /* 关于-同花顺logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BDA24E4E58D00C530E1 /* 关于-同花顺logo.png */; };
+		33119BDD24E4E58D00C530E1 /* 关于-同花顺logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BDA24E4E58D00C530E1 /* 关于-同花顺logo.png */; };
+		33119BDF24E4E76F00C530E1 /* 关于-电脑客户端图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BDE24E4E76F00C530E1 /* 关于-电脑客户端图标.png */; };
+		33119BE024E4E76F00C530E1 /* 关于-电脑客户端图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BDE24E4E76F00C530E1 /* 关于-电脑客户端图标.png */; };
+		33119BE124E4E76F00C530E1 /* 关于-电脑客户端图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 33119BDE24E4E76F00C530E1 /* 关于-电脑客户端图标.png */; };
 		33DE0E8824DA5C0D00CB9483 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DE0E8724DA5C0D00CB9483 /* AppDelegate.m */; };
 		33DE0E8B24DA5C0D00CB9483 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DE0E8A24DA5C0D00CB9483 /* SceneDelegate.m */; };
 		33DE0E8E24DA5C0D00CB9483 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DE0E8D24DA5C0D00CB9483 /* ViewController.m */; };
@@ -198,6 +210,11 @@
 		33119BB424E17CAE00C530E1 /* 运营-底.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "运营-底.png"; sourceTree = "<group>"; };
 		33119BC324E2988400C530E1 /* StocksHotPoint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StocksHotPoint.entitlements; sourceTree = "<group>"; };
 		33119BCE24E37C0900C530E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33119BD124E4DF5300C530E1 /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		33119BD224E4DF5300C530E1 /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		33119BD624E4E1CF00C530E1 /* ICON-1024-底.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON-1024-底.png"; sourceTree = "<group>"; };
+		33119BDA24E4E58D00C530E1 /* 关于-同花顺logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关于-同花顺logo.png"; sourceTree = "<group>"; };
+		33119BDE24E4E76F00C530E1 /* 关于-电脑客户端图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关于-电脑客户端图标.png"; sourceTree = "<group>"; };
 		33DE0E8324DA5C0D00CB9483 /* StocksHotPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StocksHotPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33DE0E8624DA5C0D00CB9483 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		33DE0E8724DA5C0D00CB9483 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -353,6 +370,15 @@
 			name = wenStocksCell;
 			sourceTree = "<group>";
 		};
+		33119BD024E4DF3800C530E1 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				33119BD124E4DF5300C530E1 /* AboutViewController.h */,
+				33119BD224E4DF5300C530E1 /* AboutViewController.m */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
 		33DE0E7A24DA5C0D00CB9483 = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +404,7 @@
 		33DE0E8524DA5C0D00CB9483 /* StocksHotPoint */ = {
 			isa = PBXGroup;
 			children = (
+				33119BD024E4DF3800C530E1 /* About */,
 				33119BC324E2988400C530E1 /* StocksHotPoint.entitlements */,
 				33119ADD24DD3C9700C530E1 /* wenStocks */,
 				33DE0EBB24DA76AF00CB9483 /* image */,
@@ -425,7 +452,9 @@
 				33119A8C24DBE8E400C530E1 /* 资讯详情-分割线.png */,
 				33119ADE24DD452300C530E1 /* 分享-图标.png */,
 				33119AD524DD393A00C530E1 /* 设置-箭头.png */,
+				33119BD624E4E1CF00C530E1 /* ICON-1024-底.png */,
 				33119ACB24DD372300C530E1 /* 设置-底.png */,
+				33119BDE24E4E76F00C530E1 /* 关于-电脑客户端图标.png */,
 				33119B9324DE659900C530E1 /* 首页-刷新箭头-下.png */,
 				33119BA424E11EE100C530E1 /* 气泡框2.png */,
 				33119B9C24E1196D00C530E1 /* 问股-输入框.png */,
@@ -435,6 +464,7 @@
 				33119BA024E11EDB00C530E1 /* 问股-发送按钮.png */,
 				33119A5F24DBBCB100C530E1 /* 首页-切换bar-选中状态.png */,
 				33119B9524E0EC2F00C530E1 /* 朋友圈.png */,
+				33119BDA24E4E58D00C530E1 /* 关于-同花顺logo.png */,
 				33119AE724DD456800C530E1 /* 腾讯微博.png */,
 				33119AE624DD456800C530E1 /* 新浪微博.png */,
 				33119AE224DD453900C530E1 /* 分享-弹出框-底.png */,
@@ -594,17 +624,20 @@
 				33119A5824DBB35000C530E1 /* 分享-底.png in Resources */,
 				33DE0EBD24DA76C100CB9483 /* 个人中心-图标.png in Resources */,
 				33119A6024DBBCB100C530E1 /* 首页-切换bar-选中状态.png in Resources */,
+				33119BD724E4E1CF00C530E1 /* ICON-1024-底.png in Resources */,
 				33119B9424DE659900C530E1 /* 首页-刷新箭头-下.png in Resources */,
 				33119A8D24DBE8E400C530E1 /* 资讯详情-分割线.png in Resources */,
 				33119B9624E0EC2F00C530E1 /* 朋友圈.png in Resources */,
 				33DE0E9624DA5C0F00CB9483 /* LaunchScreen.storyboard in Resources */,
 				33119BA124E11EDB00C530E1 /* 问股-发送按钮.png in Resources */,
 				33119AE824DD456800C530E1 /* 新浪微博.png in Resources */,
+				33119BDF24E4E76F00C530E1 /* 关于-电脑客户端图标.png in Resources */,
 				33119AF324DD458200C530E1 /* 运营-同花顺logo.png in Resources */,
 				33119AAF24DD004F00C530E1 /* 首页-点评.png in Resources */,
 				33119B9224DE659100C530E1 /* 首页-刷新箭头-上.png in Resources */,
 				33119ADF24DD452300C530E1 /* 分享-图标.png in Resources */,
 				33DE0E9124DA5C0D00CB9483 /* Main.storyboard in Resources */,
+				33119BDB24E4E58D00C530E1 /* 关于-同花顺logo.png in Resources */,
 				33119A4A24DB8D7600C530E1 /* 标题栏-设置图标.png in Resources */,
 				33119AEB24DD456800C530E1 /* 腾讯微博.png in Resources */,
 				33119AD624DD393A00C530E1 /* 设置-箭头.png in Resources */,
@@ -629,10 +662,13 @@
 				33119BAA24E11EF800C530E1 /* 气泡框1.png in Resources */,
 				33DE0EBE24DA76C100CB9483 /* 个人中心-图标.png in Resources */,
 				33119B9E24E1196D00C530E1 /* 问股-输入框.png in Resources */,
+				33119BD824E4E1CF00C530E1 /* ICON-1024-底.png in Resources */,
+				33119BE024E4E76F00C530E1 /* 关于-电脑客户端图标.png in Resources */,
 				33119AE024DD452300C530E1 /* 分享-图标.png in Resources */,
 				33119A5924DBB35000C530E1 /* 分享-底.png in Resources */,
 				33119BA624E11EE100C530E1 /* 气泡框2.png in Resources */,
 				33119AE424DD453900C530E1 /* 分享-弹出框-底.png in Resources */,
+				33119BDC24E4E58D00C530E1 /* 关于-同花顺logo.png in Resources */,
 				33119A4B24DB8D7600C530E1 /* 标题栏-设置图标.png in Resources */,
 				33119BA224E11EDB00C530E1 /* 问股-发送按钮.png in Resources */,
 				33119AEC24DD456800C530E1 /* 腾讯微博.png in Resources */,
@@ -659,10 +695,13 @@
 				33119BAB24E11EF800C530E1 /* 气泡框1.png in Resources */,
 				33DE0EBF24DA76C100CB9483 /* 个人中心-图标.png in Resources */,
 				33119B9F24E1196D00C530E1 /* 问股-输入框.png in Resources */,
+				33119BD924E4E1CF00C530E1 /* ICON-1024-底.png in Resources */,
+				33119BE124E4E76F00C530E1 /* 关于-电脑客户端图标.png in Resources */,
 				33119AE124DD452300C530E1 /* 分享-图标.png in Resources */,
 				33119A5A24DBB35000C530E1 /* 分享-底.png in Resources */,
 				33119BA724E11EE100C530E1 /* 气泡框2.png in Resources */,
 				33119AE524DD453900C530E1 /* 分享-弹出框-底.png in Resources */,
+				33119BDD24E4E58D00C530E1 /* 关于-同花顺logo.png in Resources */,
 				33119A4C24DB8D7600C530E1 /* 标题栏-设置图标.png in Resources */,
 				33119BA324E11EDB00C530E1 /* 问股-发送按钮.png in Resources */,
 				33119AED24DD456800C530E1 /* 腾讯微博.png in Resources */,
@@ -734,6 +773,7 @@
 				33119A9824DC10BB00C530E1 /* ListModel.m in Sources */,
 				33DE0E8824DA5C0D00CB9483 /* AppDelegate.m in Sources */,
 				33DE0E9924DA5C0F00CB9483 /* main.m in Sources */,
+				33119BD324E4DF5300C530E1 /* AboutViewController.m in Sources */,
 				33119A6C24DBD45100C530E1 /* hotDotContent.m in Sources */,
 				33DE0E8B24DA5C0D00CB9483 /* SceneDelegate.m in Sources */,
 				33119BAF24E1352000C530E1 /* wenStocksCell.m in Sources */,
@@ -758,6 +798,7 @@
 				33119A8A24DBDF7700C530E1 /* hoursTableViewCell.m in Sources */,
 				33119A6D24DBD45100C530E1 /* hotDotContent.m in Sources */,
 				33119AC924DD33D700C530E1 /* settingViewController.m in Sources */,
+				33119BD424E4DF5300C530E1 /* AboutViewController.m in Sources */,
 				33119A8424DBDF5500C530E1 /* hoursTableView.m in Sources */,
 				33119BB024E1352000C530E1 /* wenStocksCell.m in Sources */,
 				33119AC324DD1D4300C530E1 /* ListLoader.m in Sources */,
@@ -778,6 +819,7 @@
 				33119A8B24DBDF7700C530E1 /* hoursTableViewCell.m in Sources */,
 				33119A6E24DBD45100C530E1 /* hotDotContent.m in Sources */,
 				33119ACA24DD33D700C530E1 /* settingViewController.m in Sources */,
+				33119BD524E4DF5300C530E1 /* AboutViewController.m in Sources */,
 				33119A8524DBDF5500C530E1 /* hoursTableView.m in Sources */,
 				33119BB124E1352000C530E1 /* wenStocksCell.m in Sources */,
 				33119AC424DD1D4300C530E1 /* ListLoader.m in Sources */,
