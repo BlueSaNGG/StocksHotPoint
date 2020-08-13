@@ -44,6 +44,7 @@
         _label.font = [UIFont systemFontOfSize:14];
         _label.preferredMaxLayoutWidth = 250;
         [_label setNumberOfLines:0];
+        _label.textColor = [UIColor blackColor];
         //布局优先级设置
         [_label setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         [_label setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
@@ -105,7 +106,7 @@
     }];
 
     [_imgView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(_label).offset(-15);
+        make.left.mas_equalTo(_label).offset(-25);
         make.top.mas_equalTo(_label).offset(-15);
         make.bottom.mas_equalTo(_label).offset(15);
         make.right.mas_equalTo(_label).offset(15);

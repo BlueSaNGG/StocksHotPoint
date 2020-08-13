@@ -45,8 +45,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //加入一个webview
+    self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
     [self.view addSubview:({
-        self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-192)];
+        self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-192-24)];
         //对webview加入delegate控制
         self.webView.navigationDelegate = self;
         self.webView.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
@@ -148,39 +149,51 @@
     [pyqBtn addTarget:self action:@selector(pyqClicked) forControlEvents:UIControlEventTouchUpInside];
     [_shareBox addSubview:pyqBtn];
     
-    UILabel *pyqLabel = [[UILabel alloc] initWithFrame:CGRectMake(25, 120, 100, 60)];
-    pyqLabel.text = @"微信朋友圈";
+    UILabel *pyqLabel = [[UILabel alloc] initWithFrame:CGRectMake(25, 145, 100, 60)];
     pyqLabel.font = [UIFont systemFontOfSize:12];
+    pyqLabel.text = @"微信朋友圈";
+    [pyqLabel sizeToFit];
+    pyqLabel.textColor = [UIColor blackColor];
     [_shareBox addSubview:pyqLabel];
     //微信好友
-    UIButton *wxhyBtn = [[UIButton alloc] initWithFrame:CGRectMake(125, 80, 60, 60)];
+    UIButton *wxhyBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 80, 60, 60)];
+    [wxhyBtn setCenter:CGPointMake((_shareBox.bounds.size.width-50-60)/3.0+25+30, wxhyBtn.center.y)];
     [wxhyBtn setImage:[UIImage imageNamed:@"微信好友.png"] forState:UIControlStateNormal];
     [wxhyBtn addTarget:self action:@selector(wxhyClicked) forControlEvents:UIControlEventTouchUpInside];
     [_shareBox addSubview:wxhyBtn];
     
-    UILabel *wxhyLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, 120, 100, 60)];
-    wxhyLabel.text = @"微信好友";
+    UILabel *wxhyLabel = [[UILabel alloc] initWithFrame:CGRectMake(125, 145, 100, 60)];
     wxhyLabel.font = [UIFont systemFontOfSize:12];
+    wxhyLabel.text = @"微信好友";
+    [wxhyLabel sizeToFit];
+    [wxhyLabel setCenter:CGPointMake((_shareBox.bounds.size.width-50-60)/3.0+25+30, wxhyLabel.center.y)];
+    wxhyLabel.textColor = [UIColor blackColor];
     [_shareBox addSubview:wxhyLabel];
     //新浪微博
-    UIButton *xlwbBtn = [[UIButton alloc] initWithFrame:CGRectMake(225, 80, 60, 60)];
+    UIButton *xlwbBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 80, 60, 60)];
+    [xlwbBtn setCenter:CGPointMake((_shareBox.bounds.size.width-50-60)*2/3.0+25+30, xlwbBtn.center.y)];
     [xlwbBtn setImage:[UIImage imageNamed:@"新浪微博.png"] forState:UIControlStateNormal];
     [xlwbBtn addTarget:self action:@selector(xlwbClicked) forControlEvents:UIControlEventTouchUpInside];
     [_shareBox addSubview:xlwbBtn];
     
-    UILabel *xlwbLabel = [[UILabel alloc] initWithFrame:CGRectMake(225, 120, 100, 60)];
-    xlwbLabel.text = @"新浪微博";
+    UILabel *xlwbLabel = [[UILabel alloc] initWithFrame:CGRectMake(225, 145, 100, 60)];
     xlwbLabel.font = [UIFont systemFontOfSize:12];
+    xlwbLabel.text = @"新浪微博";
+    [xlwbLabel sizeToFit];
+    [xlwbLabel setCenter:CGPointMake((_shareBox.bounds.size.width-50-60)*2/3.0+25+30, xlwbLabel.center.y)];
+    xlwbLabel.textColor = [UIColor blackColor];
     [_shareBox addSubview:xlwbLabel];
     //腾讯微博
-    UIButton *txwbBtn = [[UIButton alloc] initWithFrame:CGRectMake(325, 80, 60, 60)];
+    UIButton *txwbBtn = [[UIButton alloc] initWithFrame:CGRectMake(_shareBox.bounds.size.width-25-60, 80, 60, 60)];
     [txwbBtn setImage:[UIImage imageNamed:@"腾讯微博.png"] forState:UIControlStateNormal];
     [txwbBtn addTarget:self action:@selector(txwbClicked) forControlEvents:UIControlEventTouchUpInside];
     [_shareBox addSubview:txwbBtn];
     
-    UILabel *txwbLabel = [[UILabel alloc] initWithFrame:CGRectMake(325, 120, 100, 60)];
-    txwbLabel.text = @"腾讯微博";
+    UILabel *txwbLabel = [[UILabel alloc] initWithFrame:CGRectMake(325, 145, 100, 60)];
     txwbLabel.font = [UIFont systemFontOfSize:12];
+    txwbLabel.text = @"腾讯微博";
+    [txwbLabel sizeToFit];
+    [txwbLabel setCenter:CGPointMake(txwbBtn.center.x, txwbLabel.center.y)];    txwbLabel.textColor = [UIColor blackColor];
     [_shareBox addSubview:txwbLabel];
     
     //取消按钮

@@ -15,12 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="启动页-640x1136" translatesAutoresizingMaskIntoConstraints="NO" id="fbi-4Z-uzB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="启动页-640x1136" translatesAutoresizingMaskIntoConstraints="NO" id="fbi-4Z-uzB">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fbi-4Z-uzB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1XJ-A3-XPm"/>
+                            <constraint firstAttribute="bottom" secondItem="fbi-4Z-uzB" secondAttribute="bottom" id="fIq-Kw-wJX"/>
+                            <constraint firstItem="fbi-4Z-uzB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nXH-ka-BAu"/>
+                            <constraint firstItem="fbi-4Z-uzB" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="wMQ-X6-yze"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -30,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="启动页-640x1136" width="320" height="480"/>
+        <image name="启动页-640x1136" width="213" height="378.5"/>
     </resources>
 </document>

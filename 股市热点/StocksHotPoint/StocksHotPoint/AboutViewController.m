@@ -70,7 +70,7 @@
     //底部logo设置
     UIImage *bottomLogo = [UIImage imageNamed:@"关于-同花顺logo.png"];
     UIImageView *bottomView = [[UIImageView alloc] initWithImage:bottomLogo];
-    [bottomView setFrame:CGRectMake(0, self.view.bounds.size.height-48-44-bottomLogo.size.height, 0, 0)];
+    [bottomView setFrame:CGRectMake(0, self.view.bounds.size.height-48-44-bottomLogo.size.height-24, 0, 0)];
     [bottomView sizeToFit];
     [bottomView setCenter:CGPointMake(self.view.bounds.size.width/2, bottomView.center.y)];
     [self.view addSubview:bottomView];

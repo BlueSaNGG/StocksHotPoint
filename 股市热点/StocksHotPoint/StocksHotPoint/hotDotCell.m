@@ -39,10 +39,11 @@
         if(_title.length>24) {
                     _title = [[_title substringToIndex:23] stringByAppendingString:@"..."];
                 }
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(11, 12, self.bounds.size.width+60, 40)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(11, 12, self.bounds.size.width, 40)];
         _titleLabel.text = _title;
         _titleLabel.numberOfLines = 2;
         _titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        _titleLabel.textColor = [UIColor blackColor];
         if(_titleLabel.text) {
         [self setLabelSpace:_titleLabel withSpace:1 withFont:[UIFont systemFontOfSize:16]];
         }
@@ -86,7 +87,7 @@
         
         //设置时间
         _time = [[Data[@"ctime"] substringFromIndex:5] substringToIndex:11];;
-        _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width, _titleLabel.bounds.size.height, 80, 30)];
+        _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width-80, _titleLabel.bounds.size.height, 80, 30)];
         _timeLabel.textAlignment = NSLayoutAttributeLeft;
         [_timeLabel setTextColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0]];
         _timeLabel.text = _time;

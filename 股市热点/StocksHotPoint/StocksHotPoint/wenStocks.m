@@ -56,7 +56,7 @@
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     //设置tableview
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-110)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-112-24)];
     _tableView.separatorColor = [UIColor clearColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -72,11 +72,12 @@
     
     
     //底部工具栏
-    _toolBar = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-112, self.view.bounds.size.width, 44)];
+    _toolBar = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-112-24, self.view.bounds.size.width, 44)];
     _toolBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"分享-底.png"]];
     //加入聊天框
     _textField = [[UITextField alloc] initWithFrame:CGRectMake(9, 9, 315, 30)];
     _textField.backgroundColor = [UIColor whiteColor];
+    _textField.textColor = [UIColor blackColor];
     _textField.delegate = self;
     _textField.font = [UIFont systemFontOfSize:14];
     _textField.layer.cornerRadius = 10;
@@ -160,7 +161,8 @@
     //列表中存入cell
     [_messageArray addObject:cell];
     [self.tableView reloadData];
-        
+    //滚动到底部
+    [self scrollsToBottom];
     //网络请求
     [self pushText];
         

@@ -52,7 +52,7 @@
             _curTime = [Data[@"rtime"] substringFromIndex:5];
             _curTime = [_curTime substringToIndex:11];
             
-            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width, textLabel.center.y+5, 120, 30)];
+            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width-30, textLabel.center.y+5, 120, 30)];
             [timeLabel setTextColor:[UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:1.0]];
             timeLabel.text = _curTime;
             [self setLabelSpace:timeLabel withSpace:3 withFont:[UIFont systemFontOfSize:13]];

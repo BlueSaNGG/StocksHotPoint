@@ -28,7 +28,7 @@
 - (instancetype)initWithUrlString:(NSString *)urlString {
     self = [super init];
     if(self) {
-        self.url = urlString;
+        self.url = @"https://www.baidu.com";
     }
     return self;
 }

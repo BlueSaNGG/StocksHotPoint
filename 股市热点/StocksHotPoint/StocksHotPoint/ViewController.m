@@ -12,8 +12,6 @@
 #import "hoursTableView.h"
 #import "hoursTableViewCell.h"
 #import "Webpage.h"
-#import "ListLoader.h"
-#import "ListModel.h"
 #import "settingViewController.h"
 #import <MJRefresh.h>
 #import <AFNetworking.h>
@@ -22,8 +20,7 @@
 #import <UserNotifications/UserNotifications.h>
 #import <UMCommon/MobClick.h>
 #import <MBProgressHUD.h>
-
-
+#import <WebKit/WebKit.h>
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, UNUserNotificationCenterDelegate>
 @property(nonatomic, strong) UITableView *tableView;
@@ -35,7 +32,6 @@
 @property(nonatomic, strong) hoursTableView *hoursTableView;
 @property(nonatomic, copy) NSArray *hotDataArray;
 @property(nonatomic, strong) NSMutableArray *hoursDataArray;
-@property(nonatomic, strong) ListLoader *listLoader;
 @property(nonatomic, assign) int hoursTimes;
 @property(nonatomic, strong) wenStocks *wenGuPage;
 @property(nonatomic, strong) UIBarButtonItem *rightBtn;
@@ -120,20 +116,20 @@
 // - clicked高光设置
     _leftBtnClicked = [[UIView alloc] init];
     _leftBtnClicked.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"首页-切换bar-选中状态.png"]];
-    [_leftBtnClicked setBounds:CGRectMake(0, 0, 77, 6)];
-    _leftBtnClicked.center = CGPointMake(_leftSubBtn.center.x, _leftSubBtn.center.y+30);
+    [_leftBtnClicked setBounds:CGRectMake(0, 0, 72, 6)];
+    _leftBtnClicked.center = CGPointMake(_leftSubBtn.center.x, _leftSubBtn.center.y+12);
     
     _rightBtnClicked = [[UIView alloc] init];
     _rightBtnClicked.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"首页-切换bar-选中状态.png"]];
-    [_rightBtnClicked setBounds:CGRectMake(0, 0, 77, 6)];
-    _rightBtnClicked.center = CGPointMake(_rightSubBtn.center.x, _rightSubBtn.center.y+30);
+    [_rightBtnClicked setBounds:CGRectMake(0, 0, 72, 6)];
+    _rightBtnClicked.center = CGPointMake(_rightSubBtn.center.x, _rightSubBtn.center.y+12 );
     
 
 //开启时进入今日热点+今日热点高光
     [self.view addSubview:_leftBtnClicked];
     
 // - 初始化热点掘金tableview
-    _hotDotTableView = [[hotDotContent alloc] initWithFrame:CGRectMake(0, _leftSubBtn.bounds.size.height+16, self.view.bounds.size.width, self.view.bounds.size.height-(_leftSubBtn.center.y+100))];
+    _hotDotTableView = [[hotDotContent alloc] initWithFrame:CGRectMake(0, _leftSubBtn.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height-(_leftSubBtn.center.y+100))];
     _hotDotTableView.delegate = self;
     _hotDotTableView.dataSource = self;
     [self.view addSubview:_hotDotTableView];
@@ -149,7 +145,7 @@
     }];
 
 // - 初始化24小时滚动tableview
-    _hoursTableView = [[hoursTableView alloc] initWithFrame:CGRectMake(0, _leftSubBtn.bounds.size.height+16, self.view.bounds.size.width, self.view.bounds.size.height-(_leftSubBtn.center.y+100))];
+    _hoursTableView = [[hoursTableView alloc] initWithFrame:CGRectMake(0, _leftSubBtn.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height-(_leftSubBtn.center.y+100))];
     _hoursTableView.delegate = self;
     _hoursTableView.dataSource = self;
     
@@ -319,16 +315,15 @@
      [tableView deselectRowAtIndexPath:indexPath animated:NO];
 //    跳转到webview页面
     if(tableView == self.hoursTableView) {
-        ListModel *curData =[self.hoursDataArray objectAtIndex:indexPath.row];
-        Webpage *controller = [[Webpage alloc]initWithUrlString:curData.url];
+        NSDictionary *curData =[self.hoursDataArray objectAtIndex:indexPath.row];
+        Webpage *controller = [[Webpage alloc]initWithUrlString:curData[@"url"]];
     //问股按钮
         controller.navigationItem.rightBarButtonItem = _rightBtn;
         [self.navigationController pushViewController:controller animated:YES];
     }
-    
-    if(tableView == self.hotDotTableView) {
-        ListModel *curData =[self.hotDataArray objectAtIndex:indexPath.section];
-    Webpage *controller = [[Webpage alloc]initWithUrlString:curData.url];
+        if(tableView == self.hotDotTableView) {
+        NSDictionary *curData =[self.hotDataArray objectAtIndex:indexPath.section];
+    Webpage *controller = [[Webpage alloc]initWithUrlString:curData[@"url"]];
     //问股按钮
     controller.navigationItem.rightBarButtonItem = _rightBtn;
     [self.navigationController pushViewController:controller animated:YES];
@@ -464,6 +459,7 @@
 #pragma mark - 从后台点击推送进入，从首页到问股
 - (void)mainToWenStocks {
     [self.navigationController popToRootViewControllerAnimated:NO];
+    [self leftBtnClickedFunc];
     [self wenStockClicked];
 }
 @end
