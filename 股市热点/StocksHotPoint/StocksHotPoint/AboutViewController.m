@@ -74,16 +74,18 @@
     [bottomView sizeToFit];
     [bottomView setCenter:CGPointMake(self.view.bounds.size.width/2, bottomView.center.y)];
     [self.view addSubview:bottomView];
+    
+    //设置button
+    UIButton *officialBtn = [[UIButton alloc] initWithFrame:officialWebsite.frame];
+    officialBtn.backgroundColor = [UIColor clearColor];
+    [officialBtn addTarget:self action:@selector(linkToOfficialWeb) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:officialBtn];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 跳转到官网
+- (void)linkToOfficialWeb {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://m.hexin.cn"]  options:@{} completionHandler:nil];
 }
-*/
+
 
 @end

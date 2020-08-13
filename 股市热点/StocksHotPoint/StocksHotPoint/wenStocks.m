@@ -82,6 +82,7 @@
     _textField.font = [UIFont systemFontOfSize:14];
     _textField.layer.cornerRadius = 10;
     [_textField setPlaceholder:@"请输入股票代码或一句话"];
+
     
     //加入button
     _passBtn = [[UIButton alloc] initWithFrame:CGRectMake(_textField.bounds.size.width+_textField.bounds.origin.x+18, _textField.bounds.origin.y, 48, 29)];
@@ -124,12 +125,20 @@
     if(keyboardFrame.origin.y >= self.view.bounds.size.height) {
         //收起
         [UIView animateWithDuration:duration animations:^{
+            //toolbar下降
             [self.toolBar setFrame:CGRectMake(0, self.view.bounds.size.height-44, self.view.bounds.size.width, 44)];
+            [self.tableView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.toolBar.frame.origin.y)];
+            
         }];
     } else {
-        [self.toolBar setFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 44)];
+        //toolbar上升
+//        [self.toolBar setFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 44)];
         [UIView animateWithDuration:duration animations:^{
+            //toolbar上升
             [self.toolBar setFrame:CGRectMake(0, self.view.bounds.size.height-keyboardFrame.size.height-44, self.view.bounds.size.width, 44)];
+            //tableview上升
+            [self.tableView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.toolBar.frame.origin.y)];
+            [self scrollsToBottom];
         }];
     }
     

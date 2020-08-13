@@ -129,7 +129,7 @@
     
     //加入网页跳转事件
     UITapGestureRecognizer *dlClicked = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(downloadClicked)];
-    [downloadView addGestureRecognizer:dlClicked];
+    [downLoadBtnView addGestureRecognizer:dlClicked];
     
 
 //弹框的uiview
@@ -280,7 +280,7 @@
 
 #pragma mark - 进入下载页面
 - (void)downloadClicked {
-
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://m.hexin.cn"]  options:@{} completionHandler:nil];
 }
 
 #pragma mark - 点击分享
