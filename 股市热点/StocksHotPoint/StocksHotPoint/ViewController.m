@@ -137,10 +137,7 @@
     _hotDotTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
              //进行网络请求
-             [self getHotDot];
-             dispatch_async(dispatch_get_main_queue(), ^{
-                [self->_hotDotTableView.mj_header endRefreshing];
-             });
+            [self getHotDot];
          });
     }];
 
@@ -154,21 +151,15 @@
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
              //进行网络请求
              [self getHours];
-             dispatch_async(dispatch_get_main_queue(), ^{
-                [self->_hoursTableView.mj_header endRefreshing];
-             });
          });
     }];
     
     
 //24小时滚动底部上拉请求
-    _hoursTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    _hoursTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
              //显示更多的20条页面
              [self getHoursWithTimes];
-             dispatch_async(dispatch_get_main_queue(), ^{
-                [self->_hoursTableView.mj_footer endRefreshing];
-             });
          });
     }];
 
@@ -353,6 +344,7 @@
         //用plist存储该array
         NSArray *array = self.hotDataArray;
         [array writeToFile:self.fileName atomically:YES];
+        [self->_hotDotTableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if(error.code == -1001) {
             [self refreshFailedWithStr:@"刷新失败"];
@@ -360,6 +352,7 @@
         else {
             [self refreshFailedWithStr:@"联网失败，请检查网络"];
         }
+        [self->_hotDotTableView.mj_header endRefreshing];
     }];
 }
 
@@ -369,8 +362,10 @@
     [manager GET:@"https://m.10jqka.com.cn/thsgd_list/index_1.json" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self.hoursDataArray addObjectsFromArray:responseObject[@"pageItems"]];
         [self.hoursTableView reloadData];
+        [self->_hoursTableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self refreshFailedWithStr:@"联网失败，请检查网络"];
+        [self->_hoursTableView.mj_header endRefreshing];
     }];
 }
 
@@ -380,9 +375,10 @@
     [manager GET:[NSString stringWithFormat:@"https://m.10jqka.com.cn/thsgd_list/index_%i.json",_hoursTimes] parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self.hoursDataArray addObjectsFromArray:responseObject[@"pageItems"]];
         [self.hoursTableView reloadData];
-        
+        [self->_hoursTableView.mj_footer endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self refreshFailedWithStr:@"联网失败，请检查网络"];
+        [self->_hoursTableView.mj_footer endRefreshing];
     }];
     _hoursTimes++;
 }

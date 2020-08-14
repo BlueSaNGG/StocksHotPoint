@@ -101,7 +101,6 @@
     [_toolBar addSubview:_passBtn];
     [_toolBar addSubview:_textField];
     [self.view addSubview:_toolBar];
-    
 }
 
 
@@ -116,7 +115,7 @@
     return cell;
 }
 
-#pragma mark - 设置键盘监听
+#pragma mark - 设置键盘监听，上拉输入框
 - (void)keyRiseUp:(NSNotification *)noti {
     //取到动画事件
     CGFloat duration = [[noti.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
@@ -132,7 +131,6 @@
         }];
     } else {
         //toolbar上升
-//        [self.toolBar setFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 44)];
         [UIView animateWithDuration:duration animations:^{
             //toolbar上升
             [self.toolBar setFrame:CGRectMake(0, self.view.bounds.size.height-keyboardFrame.size.height-44, self.view.bounds.size.width, 44)];
@@ -141,7 +139,6 @@
             [self scrollsToBottom];
         }];
     }
-    
 }
 
 #pragma mark - 移除监听
@@ -248,7 +245,7 @@
 }
 
 - (void)scrollsToBottom {
-    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_messageArray.count-1 inSection:0]  atScrollPosition:UITableViewScrollPositionBottom animated:YES];//这里一定要设置为NO，动画可能会影响到scrollerView，导致增加数据源之后，tableView到处乱跳
+    [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_messageArray.count-1 inSection:0]  atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 
 }
 
